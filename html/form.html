@@ -30,6 +30,14 @@
         
         11. Hidden -- <input type="hidden" /> 
 
+        ====================== Form Attributes ======================
+                        
+        placeholder (text, password, textarea)
+        value (text, password, button)
+        checked ='checked' (radio, checkbox)
+        selected='selected'(option)
+        disabled='disabled'(all)
+
 
  -->
 <html>
@@ -43,20 +51,24 @@
             <table align="center" width="400" border="0" cellpadding="10" cellspacing="0">
                 <tr>
                     <td>First Name</td>
-                    <td><input type='text' placeholder="First Name"/></td>
+                    <td><input type='text' value="Rohit" placeholder="First Name"/></td>
                 </tr>
                 <tr>
                     <td>Last Name</td>
                     <td><input type='text' placeholder="Last Name"/></td>
                 </tr>
                 <tr>
+                    <td>Email</td>
+                    <td><input disabled="disabled" type="text" value="demo@gmail.com" /></td>
+                </tr>
+                <tr>
                     <td>Password</td>
-                    <td><input type="password" placeholder="Password"/></td>
+                    <td><input type="password" value="123" placeholder="Password"/></td>
                 </tr>
                 <tr>
                     <td>Gender</td>
                     <td>
-                        Male<input type="radio" name="gender"/>
+                        Male<input type="radio" checked="checked" name="gender"/>
                         Female<input type="radio" name="gender"/>
                     </td>
                 </tr>
@@ -64,7 +76,7 @@
                     <td>Hobby</td>
                     <td>
                         Cricket <input type="checkbox" />
-                        Football <input type="checkbox" />
+                        Football <input type="checkbox" checked="checked"/>
                         <br />
                         Music <input type="checkbox" />
                         Internet <input type="checkbox" />
@@ -72,7 +84,7 @@
                 </tr>
                 <tr>
                     <td>Address</td>
-                    <td><textarea rows="5" cols="30" placeholder="Address"></textarea></td>
+                    <td><textarea rows="5" cols="30" placeholder="Address">palaysia</textarea></td>
                 </tr>
                 <tr>
                     <td>City</td>
@@ -81,7 +93,7 @@
                             <option>select</option>
                             <option>indore</option>
                             <option>mumbai</option>
-                            <option>pune</option>
+                            <option selected="selected">pune</option>
                             <option>delhi</option>
                         </select>
                     </td>
