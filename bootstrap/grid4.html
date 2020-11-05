@@ -1,0 +1,70 @@
+ <!-- 
+============================= Grid System ================
+
+
+    container-fluid (100% width)
+
+    container (gap in left/right width not is 100%)
+
+    row (equal 12 partition)
+
+    col-x
+    col-sm-x
+    col-md-x
+    col-lg-x
+    col-xl-x
+
+    offset-x
+    offset-sm-x
+    offset-md-x
+    offset-lg-x
+    offset-xl-x
+
+
+    
+    1   offset-x               (extra small --- 5inc<) modile
+
+    2   offset-sm-x            (small  ---- 5inc>  12inc<) tablet
+
+    3   offset-md-x            (medium ---  12inc>   22inc<) laptop/moniter
+
+    4   offset-lg-x            (large ---  22inc>  32inc<) TV
+
+    5   offset-xl-x            (extra large ---  32inc>) Projector
+
+
+
+  -->
+  <html>
+    <head>
+        <link type="text/css" rel="stylesheet" href="css/bootstrap.css" />
+        <script src="js/jquery.js"></script>
+        <script src="js/bootstrap.bundle.js"></script>
+    </head>
+    <body>
+       <div class="container">
+           <div class="row">
+            
+            <div class="col-md-3 offset-md-2" style="background-color: #986562; height: 200px;"></div>
+            
+            <div class="col-md-6 offset-md-1" style="background-color: #000; height: 200px;"></div>
+           </div>
+       </div>
+
+       <div class="container-fluid bg-success" style="height: 200px;">
+            <div class="row">
+                <div class="col-md-3 bg-danger offset-md-2" style="height: 200px;"></div>
+                <div class="col-md-5 bg-warning offset-md-1" style="height: 200px;"></div>
+            </div>
+       </div>
+
+        <div class="container-fluid bg-dark" style="height: 200px;">
+            <div class="row">
+                <div class="col-md-10 bg-primary offset-md-1" style="height: 200px;"></div>
+            </div>
+        </div>
+
+       
+      
+    </body>
+</html>
