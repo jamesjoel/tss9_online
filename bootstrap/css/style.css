@@ -1,0 +1,14 @@
+.slider{
+    height: 250px;
+    background-image: url("../images/slide_01.jpg");
+}
+.bg-orange{
+    background-color: #FF5733;
+}
+.bg-orange-dark{
+    background-color: #541C10;
+}
+.left-menu{
+    background-color:#FF5733;
+    border-radius: 3px 3px 0 0;
+}
