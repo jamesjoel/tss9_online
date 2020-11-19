@@ -1,0 +1,20 @@
+{
+  "name": "project1",
+  "version": "1.0.0",
+  "description": "this is sample project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "testing",
+    "sample",
+    "demo"
+  ],
+  "author": "james joel",
+  "license": "ISC",
+  "dependencies": {
+    "randomstring": "^1.1.5",
+    "to-reverse-string": "^1.0.1"
+  }
+}
