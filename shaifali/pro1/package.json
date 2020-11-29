@@ -1,0 +1,15 @@
+{
+  "name": "myfirstproject",
+  "version": "1.0.0",
+  "description": "this is my first project for testing",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "james joel",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "to-reverse-string": "^1.0.1"
+  }
+}
