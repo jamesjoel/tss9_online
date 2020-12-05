@@ -1,0 +1,40 @@
+<div class="container" style="min-height: 650px;">
+    <h3 class="mt-4">Student Page</h3>
+    
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form action="/student" method="post">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Insert New Student</h4>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Student Name</label>
+                        <input type="text" name="name" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Student Age</label>
+                        <input type="text" name="age" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Student City</label>
+                        <select name="city" class="form-control">
+                            <option>Select</option>
+                            <option>Indore</option>
+                            <option>Mumbai</option>
+                            <option>Pune</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <input type="submit" value="Add" class="btn btn-primary" />
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+

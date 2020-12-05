@@ -1,12 +1,9 @@
 var express = require("express");
 var app = express();
 
-// console.log("hello");
+console.log("----------------- FIRST LINE");
 
-
-
-
-// the listen function used for create a local server with 3000 port.
 app.listen(3000, function(){
     console.log("server running");
+    console.log("----------------- SECOND SECOND");
 });

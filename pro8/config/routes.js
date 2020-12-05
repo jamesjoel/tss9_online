@@ -5,11 +5,13 @@ var home = require("../controllers/home");
 var about = require("../controllers/about");
 var contact = require("../controllers/contact");
 var help = require("../controllers/help");
+var student = require("../controllers/student");
 
 routes.use("/", home);
 routes.use("/about", about);
 routes.use("/contact", contact);
 routes.use("/help", help);
+routes.use("/student", student);
 
 
 
