@@ -3,7 +3,7 @@
     
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <a href="/student/add" class="btn btn-info">Add New</a>
+            <a href="/student/add" class="btn btn-primary">Add New</a>
             <br />
             
             <br />
@@ -11,17 +11,23 @@
                 <tr>
                     <th>S.No.</th>
                     <th>Name</th>
-                    <th>Age</th>
+                    
                     <th>City</th>
+                    
+                    <th>View</th>
+                    <th>Edit</th>
                     <td>Delete</td>
                 </tr>
                 <% result.forEach((object, index)=>{ %>
                     <tr>
                         <td><%= index+1 %></td>
                         <td><%= object.name %></td>
-                        <td><%= object.age %></td>
+                        
                         <td><%= object.city %></td>
-                        <td><a href="/student/delete/<%= object.name %>" class="btn btn-danger btn-sm">Delete</a></td>
+                        
+                        <td><a href="/student/view/<%= object._id %>" class="btn btn-warning btn-sm">View</a></td>
+                        <td><a href="/student/edit/<%= object._id %>" class="btn btn-info btn-sm">Edit</a></td>
+                        <td><a href="/student/delete/<%= object._id %>" class="btn btn-danger btn-sm">Delete</a></td>
                     </tr>
                 <% }) %>
 

@@ -6,43 +6,43 @@
             <form action="/student" method="post">
             <div class="card">
                 <div class="card-header">
-                    <h4>Insert New Student</h4>
+                    <h4>Update Student</h4>
                 </div>
                 <div class="card-body">
                     <div class="form-group">
                         <label>Student Name</label>
-                        <input type="text" name="name" class="form-control" />
+                        <input value="<%= result.name %>" type="text" name="name" class="form-control" />
                     </div>
                     <div class="form-group">
                         <label>Student Age</label>
-                        <input type="text" name="age" class="form-control" />
+                        <input value="<%= result.age %>" type="text" name="age" class="form-control" />
                     </div>
                     <div class="form-group">
                         <label>Address</label>
-                        <textarea name="address" class="form-control" ></textarea>
+                        <textarea name="address" class="form-control" ><%= result.address %></textarea>
                     </div>
                     <div class="form-group">
                         <label>Student City</label>
                         <select name="city" class="form-control">
                             <option>Select</option>
-                            <option>Indore</option>
-                            <option>Mumbai</option>
-                            <option>Pune</option>
+                            <option <% if(result.city=="Indore"){ %> selected <% } %> >Indore</option>
+                            <option <% if(result.city=="Mumbai"){ %> selected <% } %> >Mumbai</option>
+                            <option <% if(result.city=="Pune"){ %> selected <% } %> >Pune</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label>Fee</label>
-                        <input name="fee" type="text" class="form-control" />
+                        <input name="fee" type="text" value="<%= result.fee %>" class="form-control" />
                     </div>
                     <div class="form-group">
                         <label>Gender</label>
-                        Male : <input type="radio" name="gender" value="male" />
-                        Female : <input type="radio" name="gender" value="female" />
+                        Male : <input type="radio" <% if(result.gender=="male"){ %> checked <% } %> name="gender" value="male" />
+                        Female : <input type="radio" <% if(result.gender=="female"){ %> checked <% } %>  name="gender" value="female" />
                     </div>
                     
                 </div>
                 <div class="card-footer">
-                    <input type="submit" value="Add" class="btn btn-primary" />
+                    <input type="submit" value="Update" class="btn btn-primary" />
                 </div>
             </div>
             </form>
