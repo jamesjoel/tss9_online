@@ -7,7 +7,7 @@ app.set('view engine', 'ejs');
 app.use(express.static(__dirname+"/assets"));
 app.use(bodyParser());
 app.use(routes);
-
+// if any route come the go to routes.js
 
 
 app.listen(3000, ()=>{

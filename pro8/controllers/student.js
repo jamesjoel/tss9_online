@@ -80,6 +80,9 @@ routes.get("/delete/:id", (req, res)=>{
     // console.log("this is delete student");
 });
 /*
+
+
+
     CRUD ----
 
     Create
@@ -132,11 +135,51 @@ routes.get("/edit/:id", (req, res)=>{
         var db = con.db("tss9");
         db.collection("student").findOne({ _id : id }, (err, result)=>{
         
-            console.log(result); 
+            //console.log(result); 
             var pagedata = { title : "Student", pagename : "student/edit", result : result };
             res.render("layout", pagedata);
         });
     });
 });
 
+routes.post("/edit", (req, res)=>{
+    // console.log(res);
+    // console.log(req.body);
+    var id = req.body.id;
+    id = mongo.ObjectId(id);
+
+    delete req.body.id;
+    // { id, name, age, address, gender, city }
+
+    MongoClient.connect(url, (err, con)=>{
+        var db = con.db("tss9");
+        db.collection("student").updateOne({ _id : id }, { $set : req.body }, ()=>{
+            res.redirect("/student");
+        })
+    })
+})
+
+
 module.exports = routes;
+
+/*
+
+db.collection("").updateOne({ age : 25 }, { $set : { city : "indore", fee : 2000 }}, ()=>{
+db.collection("").updateOne({ age : 25 }, { city : "indore", fee : 2000 }, ()=>{
+
+})
+
+{
+   
+    city : "indore",
+    fee : 2000
+
+
+
+
+}
+
+
+
+
+*/

@@ -6,12 +6,16 @@ var about = require("../controllers/about");
 var contact = require("../controllers/contact");
 var help = require("../controllers/help");
 var student = require("../controllers/student");
+var demo = require("../controllers/demo");
+
+
 
 routes.use("/", home);
 routes.use("/about", about);
 routes.use("/contact", contact);
 routes.use("/help", help);
 routes.use("/student", student);
+routes.use("/demo", demo);
 
 
 
