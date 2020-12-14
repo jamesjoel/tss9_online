@@ -1,8 +1,5 @@
 exports.index = (req, res)=>{
-    res.send("login page");
+    var pagedata = { title : "Login", pagename : "login/index"}
+    res.render("layout", pagedata);
 }
 
-
-exports.demo = (req, res)=>{
-    res.send("demo page");
-}

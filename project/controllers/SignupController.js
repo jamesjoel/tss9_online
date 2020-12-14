@@ -1,3 +1,5 @@
 exports.index = (req, res)=>{
-    res.send("singup page");
+    var pagedata = { title : "Signup", pagename : "signup/index"}
+    res.render("layout", pagedata);
 }
+
