@@ -1,30 +1,21 @@
 var express = require("express");
 var app = express();
-// __dirname predefined variable for giving us dir path
-
-/*
-all static files like
-    .css
-    .js
-    all images
-
-
-
-    the express.static() function serve all static to the client.
-*/
-
+var TeacherModel = require("./models/TeacherModel");
+var database = require("./database/connect");
 app.use(express.static(__dirname+"/node_modules"));
 
 
 
 app.get("/", function(req, res){
-    res.sendFile(__dirname+"/home.html");
-});
-app.get("/about", function(req, res){
-    res.sendFile(__dirname+"/about.html");
-});
-app.get("/contact", function(req, res){
-    res.sendFile(__dirname+"/contact.html");
+    TeacherModel.create({ name : "rohit", age : 25, city : "indore"}, (err, result)=>{
+        if(err){
+            console.log(err);
+            return;
+        }
+        console.log(result);
+        console.log('hello world');
+
+    })
 });
 
 
