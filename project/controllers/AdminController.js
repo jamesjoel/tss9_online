@@ -1,9 +1,44 @@
 var CategoryModel = require("../models/CategoryModel");
 var AdminModel = require("../models/AdminModel");
-var bcrypt = require("bcrypt");
+// var bcrypt = require("bcrypt");
+var sha1 = require("sha1");
 
+
+
+
+exports.do_login=(req, res)=>{
+    // console.log(req.body);
+    var username = req.body.username; // sdfgsdfg
+    var password = sha1(req.body.password); // admin
+
+    AdminModel.find({ username : username }).exec(function(err, result){
+        // console.log("----------------", result);
+        if(result.length == 1) // if username is matach
+        {
+            if(result[0].password == password)
+            {
+                res.redirect("/admin/dashboard");
+            }
+            else
+            {
+                req.flash("msg", "This Password is incorrect !");
+                res.redirect("/admin");
+            }
+        }
+        else // if username not matched
+        {
+            req.flash("msg", "This Username and Password is incorrect !");
+            res.redirect("/admin");
+        }
+    });
+
+}
+exports.login = (req, res)=>{
+    var pagedata = { title : "Login", errorMsg : req.flash("msg") };
+    res.render("admin/login", pagedata);
+}
 exports.index = (req, res)=>{
-    var pagedata = { title : "Dashboard", pagename : "admin/dashboard"};
+    var pagedata = { title : "Dashboard", pagename : "admin/dashboard" };
     res.render("admin_layout", pagedata);
 }
 exports.product = (req, res)=>{
@@ -30,16 +65,14 @@ exports.insert_category = (req, res)=>{
 
 exports.insert_admin = (req, res)=>{
     var pass = "admin";
-    var bcrypt_pass = bcrypt.hash(pass, "i love my india");
-
-
-
-    var data = { username : "admin", password : bcrypt_pass };
-    AdminModel.create(data, (err, result)=>{
-        console.log(result);
-    })
+    var newpass = sha1(pass);
+    console.log(newpass)
+    // var data = { username : "admin", password : newpass };
+    // AdminModel.create(data, (err, result)=>{
+    //     console.log(result);
+    // })
 }
-
+// d4b8d6e468211b5cfb9b73a94a6ed74ddc59c68b
 
 exports.users = (req, res)=>{
     var pagedata = { title : "Users", pagename : "admin/users"};
