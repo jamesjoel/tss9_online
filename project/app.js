@@ -4,6 +4,7 @@ var bodyParser = require("body-parser");
 var routes = require("./config/routes");
 var session = require("express-session");
 var flash = require("express-flash");
+var nochahe = require("nocache");
 // setting express env
 app.set("view engine", "ejs");
 app.use(express.static(__dirname+"/assets"));
@@ -11,9 +12,8 @@ app.use(express.static(__dirname+"/assets"));
 require("./config/database");
 
 app.use(session({ secret : "the stepping stone"}));
-
-
 // use middleware (modules)
+app.use(nochahe());
 app.use(bodyParser.urlencoded({ extended : true }));
 app.use(bodyParser.json());
 app.use(flash());

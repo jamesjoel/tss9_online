@@ -10,6 +10,7 @@ exports.do_login=(req, res)=>{
     // console.log(req.body);
     var username = req.body.username; // sdfgsdfg
     var password = sha1(req.body.password); // admin
+    // console.log(password);
 
     AdminModel.find({ username : username }).exec(function(err, result){
         // console.log("----------------", result);
@@ -17,6 +18,10 @@ exports.do_login=(req, res)=>{
         {
             if(result[0].password == password)
             {
+                // create some session for backdoor
+                req.session.admin_id = result[0]._id;
+                req.session.admin_username = result[0].username;
+                req.session.is_admin_logged_in = true;
                 res.redirect("/admin/dashboard");
             }
             else
@@ -38,6 +43,11 @@ exports.login = (req, res)=>{
     res.render("admin/login", pagedata);
 }
 exports.index = (req, res)=>{
+    // if(! req.session.is_admin_logged_in)
+    // {
+    //     res.redirect("/admin");
+    // }
+
     var pagedata = { title : "Dashboard", pagename : "admin/dashboard" };
     res.render("admin_layout", pagedata);
 }
@@ -67,10 +77,10 @@ exports.insert_admin = (req, res)=>{
     var pass = "admin";
     var newpass = sha1(pass);
     console.log(newpass)
-    // var data = { username : "admin", password : newpass };
-    // AdminModel.create(data, (err, result)=>{
-    //     console.log(result);
-    // })
+    var data = { username : "admin", password : newpass };
+    AdminModel.create(data, (err, result)=>{
+        console.log(result);
+    })
 }
 // d4b8d6e468211b5cfb9b73a94a6ed74ddc59c68b
 
