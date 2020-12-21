@@ -147,8 +147,16 @@
                                     <li><a href="./blog-details.html">Blog Details</a></li>
                                 </ul>
                             </li>
-                            <li><a href="/login">Login</a></li>
-                            <li><a href="/signup">Signup</a></li>
+                            <% if(session.is_user_logged_in){ %>
+                                <li><a href="/dashboard">Dashborad</a></li>
+                                <li><a href="/logout">Logout</a></li>
+
+                            <% } else { %>
+
+                                <li><a href="/login">Login</a></li>
+                                <li><a href="/signup">Signup</a></li>
+
+                            <% } %>
                         </ul>
                     </nav>
                 </div>

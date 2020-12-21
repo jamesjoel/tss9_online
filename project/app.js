@@ -18,6 +18,14 @@ app.use(bodyParser.urlencoded({ extended : true }));
 app.use(bodyParser.json());
 app.use(flash());
 
+app.use(function(req, res, next){
+    // what ever we set in res.locals its directly avalable on view (all views)
+    res.locals.session = req.session;
+    next();
+});
+
+
+
 app.use(routes);
 
 var port = 3000;

@@ -7,6 +7,7 @@ var About = require("../routes/About");
 var Contact = require("../routes/Contact");
 
 var Admin = require("../routes/Admin");
+var Dashboard = require("../routes/Dashboard");
 
 routes.use("/", Home);
 routes.use("/login", Login);
@@ -14,6 +15,15 @@ routes.use("/signup", Signup);
 routes.use("/about", About);
 routes.use("/contact", Contact);
 routes.use("/admin", Admin);
+
+routes.use("/dashboard", Dashboard);
+
+
+routes.get("/logout", (req, res)=>{
+    req.session.destroy();
+    res.redirect("/");
+})
+
 
 module.exports = routes;
 
