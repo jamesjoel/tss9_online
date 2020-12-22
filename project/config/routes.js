@@ -16,13 +16,21 @@ routes.use("/about", About);
 routes.use("/contact", Contact);
 routes.use("/admin", Admin);
 
-routes.use("/dashboard", Dashboard);
+routes.use("/dashboard",backdoorCheck, Dashboard);
 
 
 routes.get("/logout", (req, res)=>{
     req.session.destroy();
     res.redirect("/");
-})
+});
+
+function backdoorCheck(req, res, next){
+    if(! req.session.is_user_logged_in){
+        res.redirect("/");
+        return;
+    }
+    next();
+}
 
 
 module.exports = routes;

@@ -9,6 +9,10 @@ var nochahe = require("nocache");
 app.set("view engine", "ejs");
 app.use(express.static(__dirname+"/assets"));
 // connect database
+
+var CategoryModel = require("./models/CategoryModel");
+
+
 require("./config/database");
 
 app.use(session({ secret : "the stepping stone"}));
@@ -20,8 +24,13 @@ app.use(flash());
 
 app.use(function(req, res, next){
     // what ever we set in res.locals its directly avalable on view (all views)
-    res.locals.session = req.session;
-    next();
+    CategoryModel.find({}).exec(function(err, category){
+
+        res.locals.session = req.session;
+        res.locals.cate_arr = category;
+        next();
+    });
+
 });
 
 

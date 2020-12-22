@@ -4,6 +4,15 @@ var AdminModel = require("../models/AdminModel");
 var sha1 = require("sha1");
 
 
+exports.view_category = (req, res)=>{
+    CategoryModel.find({}).exec((err, result)=>{
+        var pagedata = { title : "View All Category", pagename : "admin/view_category", result : result};
+        res.render("admin_layout", pagedata);
+
+    });
+}
+
+
 
 
 exports.do_login=(req, res)=>{
@@ -68,7 +77,7 @@ exports.insert_category = (req, res)=>{
     var data = { name : req.body.category_name };
     CategoryModel.create(data, (err, result)=>{
         // console.log(result);
-        res.redirect("/admin");
+        res.redirect("/admin/category/view");
     })
 
 }
