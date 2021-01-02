@@ -26,7 +26,7 @@ app.post("/upload", (req, res)=>{
     // file data comes in ----- req.files
     console.log(req.files.image);
 
-    var name = req.files.image.name; // image10.jpg
+    var name = req.files.image.name; // image10.demo.test.jpg
     var size = req.files.image.size; // bytes -- 510
 
     var arr = name.split("."); // break name by .

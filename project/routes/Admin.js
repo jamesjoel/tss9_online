@@ -9,12 +9,18 @@ routes.post("/login", AdminCtrl.do_login);
 
 routes.get("/dashboard", backdoorCheck, AdminCtrl.index);
 routes.get("/product", backdoorCheck, AdminCtrl.product);
+
+routes.post("/product/add", backdoorCheck, AdminCtrl.product_add);
+
 routes.get("/category", backdoorCheck, AdminCtrl.category);
 routes.get("/category/view", backdoorCheck, AdminCtrl.view_category);
 
 routes.post("/category",  backdoorCheck, AdminCtrl.insert_category);
 routes.get("/demo", backdoorCheck, AdminCtrl.insert_admin);
 routes.get("/users",  backdoorCheck, AdminCtrl.users);
+
+
+
 
  
 routes.get("/logout", (req, res)=>{

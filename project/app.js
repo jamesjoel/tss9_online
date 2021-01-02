@@ -5,6 +5,8 @@ var routes = require("./config/routes");
 var session = require("express-session");
 var flash = require("express-flash");
 var nochahe = require("nocache");
+var fileupload = require("express-fileupload");
+
 // setting express env
 app.set("view engine", "ejs");
 app.use(express.static(__dirname+"/assets"));
@@ -20,6 +22,7 @@ app.use(session({ secret : "the stepping stone"}));
 app.use(nochahe());
 app.use(bodyParser.urlencoded({ extended : true }));
 app.use(bodyParser.json());
+app.use(fileupload());
 app.use(flash());
 
 app.use(function(req, res, next){

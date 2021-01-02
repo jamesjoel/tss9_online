@@ -1,7 +1,59 @@
 var CategoryModel = require("../models/CategoryModel");
 var AdminModel = require("../models/AdminModel");
+var ProductModel = require("../models/ProductModel");
 // var bcrypt = require("bcrypt");
 var sha1 = require("sha1");
+var uniquestring = require("unique-string");
+var path = require("path"); // this is core level module for help determin path
+
+
+
+exports.product_add = (req, res)=>{
+    // console.log(req.body);
+    // console.log(req.files);
+    
+
+    var image = req.files.image;
+
+    var name = image.name;
+    var size = image.size;
+
+    var arr = name.split(".");
+    var n = arr.length;
+    var ext = arr[n-1];
+
+    if(ext=="jpg" || ext == "png" || ext == "gif" || ext == "jpeg")
+    {
+        if(size <= (1024*1024)) // check image size is 1 mb
+        {
+            var newname = uniquestring()+"."+ext;
+            // sdfg214dfs5g4sdf4g.jpg
+            // image.mv("../../assets/product_images/"+newname, (err)=>{
+            image.mv(path.resolve()+"/assets/product_images/"+newname, (err)=>{
+                if(err){
+                    console.log("---------", err);
+                    return;
+                }
+                req.body.image = newname;
+                ProductModel.create(req.body, (error, result)=>{
+                    res.redirect("/admin/product");
+                })
+            })
+
+        }
+        else
+        {
+            req.flash("msg", 'This File Size should be less then 1 mb');
+            res.redirect("/admin/product");
+        }
+    }
+    else
+    {
+        req.flash("msg", 'This File Type Not Allowed');
+        res.redirect("/admin/product");
+    }
+}
+
 
 
 exports.view_category = (req, res)=>{
@@ -62,7 +114,7 @@ exports.index = (req, res)=>{
 }
 exports.product = (req, res)=>{
     
-    var pagedata = { title : "Products", pagename : "admin/product"};
+    var pagedata = { title : "Products", pagename : "admin/product", msg : req.flash("msg")};
     res.render("admin_layout", pagedata);
 }
 exports.category = (req, res)=>{
