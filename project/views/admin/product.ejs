@@ -26,11 +26,11 @@
                     <label>Product Category</label>
                     <select name="category" class="form-control">
                         <option>Select</option>
-                        <option>Home Appliance</option>
-                        <option>Electronics</option>
-                        <option>Mobiles and Laptop</option>
-                        <option>Fashion Mens</option>
-                        <option>Fashion Womens</option>
+                        <% result.forEach(function(cate){ %>
+                            <option value="<%= cate._id %>"><%= cate.name %></option>
+                        <% }) %>
+                        
+                        
                     </select>
                 </div>
                 <div class="form-group">

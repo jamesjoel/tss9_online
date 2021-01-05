@@ -7,6 +7,17 @@ var uniquestring = require("unique-string");
 var path = require("path"); // this is core level module for help determin path
 
 
+exports.all_product = (req, res)=>{
+
+
+    ProductModel.find({}).exec((err, result)=>{
+        var pagedata = { title : "Products", pagename : "admin/allproduct", result : result};
+        res.render("admin_layout", pagedata);
+
+    })
+}
+
+
 
 exports.product_add = (req, res)=>{
     // console.log(req.body);
@@ -113,9 +124,11 @@ exports.index = (req, res)=>{
     res.render("admin_layout", pagedata);
 }
 exports.product = (req, res)=>{
-    
-    var pagedata = { title : "Products", pagename : "admin/product", msg : req.flash("msg")};
-    res.render("admin_layout", pagedata);
+    CategoryModel.find({}).exec((err, result)=>{
+        var pagedata = { title : "Products", pagename : "admin/product", msg : req.flash("msg"), result : result};
+        res.render("admin_layout", pagedata);
+
+    })
 }
 exports.category = (req, res)=>{
     

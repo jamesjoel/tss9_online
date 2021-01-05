@@ -11,6 +11,7 @@ routes.get("/dashboard", backdoorCheck, AdminCtrl.index);
 routes.get("/product", backdoorCheck, AdminCtrl.product);
 
 routes.post("/product/add", backdoorCheck, AdminCtrl.product_add);
+routes.get("/allproduct", backdoorCheck, AdminCtrl.all_product);
 
 routes.get("/category", backdoorCheck, AdminCtrl.category);
 routes.get("/category/view", backdoorCheck, AdminCtrl.view_category);

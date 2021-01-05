@@ -6,10 +6,12 @@ var Signup = require("../routes/Signup");
 var About = require("../routes/About");
 var Contact = require("../routes/Contact");
 
+
 var Admin = require("../routes/Admin");
 var Dashboard = require("../routes/Dashboard");
 
 routes.use("/", Home);
+routes.use("/category", Home);
 routes.use("/login", Login);
 routes.use("/signup", Signup);
 routes.use("/about", About);
