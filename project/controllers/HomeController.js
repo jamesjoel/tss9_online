@@ -1,6 +1,7 @@
 var ProductModel = require("../models/ProductModel");
 exports.index = (req, res)=>{
 
+    console.log("--------", req.cookies);
     ProductModel.find({}).exec((err, result)=>{
 
         var pagedata = { title : "Home Page", pagename : "home/index", result : result};
