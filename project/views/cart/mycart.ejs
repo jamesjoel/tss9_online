@@ -7,10 +7,29 @@
                     <h5>Items in Your Cart</h5>
                 </div>
                 <div class="card-body">
-                </div>
+                    <table class="table table-dark table-hover table-bordered table-striped">
+                        <tr>
+                            <th>S.No.</th>
+                            <th>Product Name</th>
+                            <th>Product Image</th>
+                            <th>Product Price</th>
+                            <th>Remove</th>
+                        </tr>
+                        
+                        <% result.forEach(function(pro, index){ %>
+                            <tr>
+                                <td><%= index+1 %></td>
+                                <td><%= pro.name %></td>
+                                <td><img src="/product_images/<%= pro.image %>" height="100" width="100" /></td>                                  </td>
+                                <td><%= pro.price %></td>
+                                <td><a href="/cart/remove/<%= pro._id %>" class="btn btn-sm btn-danger">Remove</a></td>
+                            </tr>    
+                        <% }) %>
+                        </div>
+                    </table>
                 <div class="card-footer">
                     <a href="#" class="btn btn-primary">Buy Now</a>
-                    <a href="#" class="btn btn-danger">Clear Cart</a>
+                    <a href="/cart/clearcart" class="btn btn-danger">Clear Cart</a>
                 </div>
             </div>
         </div>
