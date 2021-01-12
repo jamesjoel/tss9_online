@@ -1,5 +1,5 @@
 const routes = require("express").Router();
-var MongoClient = require("mongodb").MongoClient;
+// var MongoClient = require("mongodb").MongoClient;
 
 var StudentModel = require("../models/StudentModel");
 // Controller
@@ -9,6 +9,14 @@ routes.get("/list", (req, res)=>{
         res.send(result);
     });
 });
+
+// localhost:3000/student/save
+routes.post("/save", (req, res)=>{
+    // console.log(req.body);
+    StudentModel.save(req.body, function(err, result){
+        res.send({ msg : "Data Saved"});
+    })
+})
 
 
 
