@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <script src="socket.io/socket.io.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+
+        <script>
+            var socket = io();
+            // this io() function is manage server connectivity for every time user connect or disconnect
+
+
+            socket.on("score", function(data){
+                // console.log(data);
+                $("#run").html(data.r);
+                $("#wicket").html(data.w);
+            });
+        </script>
+
+    </head>
+    <body>
+        <h2>Chatting in Node</h2>
+
+        <p>Total Run is : <b id="run"><%= result.run %></b></p>
+        <p>Total Wicket is : <b id="wicket"><%= result.wicket %></b></p>
+    </body>
+</html>
+

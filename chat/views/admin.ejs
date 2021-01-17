@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <script src="socket.io/socket.io.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+
+        <script>
+            var socket = io();
+            // this io() function is manage server connectivity for every time user connect or disconnect
+        </script>
+        <style>
+            body{
+                background-color: #AC1245;
+            }
+        </style>
+        <script>
+            $(document).ready(function(){
+                $("button").click(function(){
+                    var r = $("#r").val();
+                    var w = $("#w").val();
+                    var sendObj = { r : r, w : w};
+                    socket.emit("crickinfo", sendObj);
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <h2>This is admin page</h2>
+        Insert Number of total Run : <input type="text" id="r"/>
+        <br />
+        <br />
+        Insert Number of total Wicket : <input type="text" id="w"/>
+        <br />
+        <br />
+        <button>Submit</button>
+    </body>
+</html>
+
