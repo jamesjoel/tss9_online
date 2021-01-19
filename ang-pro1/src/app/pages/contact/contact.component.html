@@ -1,2 +1,31 @@
 <h1>Contact Page</h1>
 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, vitae ipsam eius non placeat mollitia. Blanditiis ullam quaerat itaque nam maiores, inventore autem, aperiam velit perferendis nobis repudiandae deserunt. Voluptatem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam consequuntur numquam asperiores delectus non deleniti illo cum eaque officia, vero dicta distinctio consectetur quae? Ad doloribus officia cupiditate similique in! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita quae quasi beatae modi aperiam, at omnis qui deserunt consequuntur corrupti sequi laboriosam, voluptatem rerum ipsa. Dolore obcaecati aliquid consectetur placeat?</p>
+
+<p>{{ firstname+" "+lastname }}</p>
+
+<ol>
+    <li *ngFor="let x of color">{{ x }}</li>
+</ol>
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <table class="table table-dark table-hover table-striped">
+                <tr>
+                    <th>S.No.</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>City</th>
+                </tr>
+
+                <tr *ngFor="let u of users; let n = index">
+                    <td>{{ n+1 }}</td>
+                    <td>{{ u.name }}</td>
+                    <td>{{ u.age }}</td>
+                    <td>{{ u.city }}</td>
+                </tr>
+            </table>
+            <button (click)="demo()" class="btn btn-primary">OK</button> 
+        </div>
+    </div>
+</div>

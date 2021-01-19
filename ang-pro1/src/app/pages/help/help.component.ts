@@ -7,9 +7,66 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HelpComponent implements OnInit {
 
+  n=0;
+  x = "TSS";
+  m=0;
+
+  color="blue";
+  s = 25;
+
+
+  boxcolor="#852147";
+  h=100;
+  w=100;
+
+
+
+  mo(){
+    this.boxcolor="green";
+  }
+  mm(){
+    this.h++;
+    this.w++;
+  }
+  mout(){
+    this.boxcolor="#852147";
+    this.h=100;
+    this.w=100;
+  }
+
+
+
+
+
+
+
+  counter(){
+    console.log("hello world");
+    this.n++;
+    
+  }
+  demo3(){
+    this.m++;
+  }
+
+  demo()
+  {
+    this.x="Welcome";
+  }
+  demo2()
+  {
+    this.x="TSS";
+  }
+
   constructor() { }
 
   ngOnInit() {
   }
+
+
+
+
+
+
 
 }
