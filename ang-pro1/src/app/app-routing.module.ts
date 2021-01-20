@@ -7,10 +7,16 @@ import { ContactComponent } from './pages/contact/contact.component';
 
 import { HelpComponent } from './pages/help/help.component';
 
+import { ServiceComponent } from './pages/service/service.component';
+
 const routes: Routes = [
   {
     path : "",  // localhost:4200
     component : HomeComponent
+  },
+  {
+    path : "service",
+    component : ServiceComponent
   },
   {
     path : "about", // localhost:4200/about

@@ -11,6 +11,9 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HelpComponent } from './pages/help/help.component';
+import { ServiceComponent } from './pages/service/service.component';
+import { InfoBoxComponent } from './shared/info-box/info-box.component';
+import { MiniInfoComponent } from './shared/mini-info/mini-info.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { HelpComponent } from './pages/help/help.component';
     ContactComponent,
     HeaderComponent,
     FooterComponent,
-    HelpComponent
+    HelpComponent,
+    ServiceComponent,
+    InfoBoxComponent,
+    MiniInfoComponent
   ],
   imports: [
     BrowserModule,

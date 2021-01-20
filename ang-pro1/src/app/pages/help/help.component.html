@@ -33,3 +33,20 @@
  <br />
  <br />
  <br />
+ <p *ngIf="z==10; else box">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores non totam quis quas est unde possimus illo id tenetur, laborum adipisci voluptatum cumque perferendis asperiores expedita quos. Repellendus, sit eos.</p>
+
+<ng-template #box>
+    <p>my name is james</p>
+</ng-template>
+
+
+<div [ngSwitch]="a">
+
+    <h1 *ngSwitchCase="'red'">Indore</h1>
+    <h1 *ngSwitchCase="'blue'">Mumbai</h1>
+    <h1 *ngSwitchCase="'green'">Pune</h1>
+    <h1 *ngSwitchCase="'black'">Delhi</h1>
+    <h1 *ngSwitchDefault>No City</h1>
+
+
+</div>

@@ -8,16 +8,21 @@ import { Component, OnInit } from '@angular/core';
 export class HelpComponent implements OnInit {
 
   n=0;
-  x = "TSS";
   m=0;
-
+  
   color="blue";
   s = 25;
-
-
+  
+  
   boxcolor="#852147";
   h=100;
   w=100;
+  
+  x = "TSS";
+  z=100;
+
+
+  a = "green";
 
 
 
