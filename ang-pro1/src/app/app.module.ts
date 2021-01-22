@@ -14,6 +14,9 @@ import { HelpComponent } from './pages/help/help.component';
 import { ServiceComponent } from './pages/service/service.component';
 import { InfoBoxComponent } from './shared/info-box/info-box.component';
 import { MiniInfoComponent } from './shared/mini-info/mini-info.component';
+import { TermsComponent } from './pages/terms/terms.component';
+import { ParentBoxComponent } from './shared/parent-box/parent-box.component';
+import { ChildBoxComponent } from './shared/child-box/child-box.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { MiniInfoComponent } from './shared/mini-info/mini-info.component';
     HelpComponent,
     ServiceComponent,
     InfoBoxComponent,
-    MiniInfoComponent
+    MiniInfoComponent,
+    TermsComponent,
+    ParentBoxComponent,
+    ChildBoxComponent
   ],
   imports: [
     BrowserModule,

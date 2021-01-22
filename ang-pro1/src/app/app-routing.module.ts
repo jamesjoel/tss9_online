@@ -8,11 +8,16 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { HelpComponent } from './pages/help/help.component';
 
 import { ServiceComponent } from './pages/service/service.component';
+import { TermsComponent } from './pages/terms/terms.component';
 
 const routes: Routes = [
   {
     path : "",  // localhost:4200
     component : HomeComponent
+  },
+  {
+    path : "terms",
+    component : TermsComponent
   },
   {
     path : "service",
