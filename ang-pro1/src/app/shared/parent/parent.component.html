@@ -1,0 +1,9 @@
+<div>
+    <h2>Parent Component</h2>
+    <p>{{ msg }}</p>
+    <app-child 
+        [childArr]= "parentArr" 
+        (childEvent)="recMessage($event)"
+    ></app-child>
+</div>
+

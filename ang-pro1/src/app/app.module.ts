@@ -17,6 +17,8 @@ import { MiniInfoComponent } from './shared/mini-info/mini-info.component';
 import { TermsComponent } from './pages/terms/terms.component';
 import { ParentBoxComponent } from './shared/parent-box/parent-box.component';
 import { ChildBoxComponent } from './shared/child-box/child-box.component';
+import { ParentComponent } from './shared/parent/parent.component';
+import { ChildComponent } from './shared/child/child.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { ChildBoxComponent } from './shared/child-box/child-box.component';
     MiniInfoComponent,
     TermsComponent,
     ParentBoxComponent,
-    ChildBoxComponent
+    ChildBoxComponent,
+    ParentComponent,
+    ChildComponent
   ],
   imports: [
     BrowserModule,
