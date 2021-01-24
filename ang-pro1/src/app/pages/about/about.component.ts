@@ -10,5 +10,9 @@ export class AboutComponent {
   name = "rohit";
   age = 25;
 
+  x = "i love india";
+
+  y = "mumbai";
+
   
 }

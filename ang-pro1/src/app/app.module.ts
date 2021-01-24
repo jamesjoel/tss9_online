@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { FormsModule  } from '@angular/forms'; 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Box1Component } from './box1/box1.component';
@@ -19,6 +21,7 @@ import { ParentBoxComponent } from './shared/parent-box/parent-box.component';
 import { ChildBoxComponent } from './shared/child-box/child-box.component';
 import { ParentComponent } from './shared/parent/parent.component';
 import { ChildComponent } from './shared/child/child.component';
+import { StudentComponent } from './pages/student/student.component';
 
 @NgModule({
   declarations: [
@@ -38,11 +41,13 @@ import { ChildComponent } from './shared/child/child.component';
     ParentBoxComponent,
     ChildBoxComponent,
     ParentComponent,
-    ChildComponent
+    ChildComponent,
+    StudentComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
