@@ -1,0 +1,79 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <br />
+            <!-- <pre>{{ newStudent | json }}</pre>  -->
+            <button data-toggle="modal" data-target="#addModal" class="btn btn-info btn-sm">Add Student</button>
+            <Br />
+            <div *ngIf="student">
+                <table class="table table-dark table-bordered">
+                    <tr>
+                        <th>S.No.</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Address</th>
+                        <th>City</th>
+                        <th>Gender</th>
+                        <th>Fee</th>
+                    </tr>
+                    <tr *ngFor="let s of student; let n = index">
+                        <td>{{ n+1 }}</td>
+                        <td>{{ s.name }}</td>
+                        <td>{{ s.age }}</td>
+                        <td>{{ s.address }}</td>
+                        <td>{{ s.city }}</td>
+                        <td>{{ s.gender }}</td>
+                        <td>{{ s.fee }}</td>
+                    </tr>
+                </table>
+            </div>
+            
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="addModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>{{ newStudent._id ? "Update" : "Add New" }} Student</h3>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input [(ngModel)]="newStudent.name" type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Age</label>
+                    <input type="text" [(ngModel)]="newStudent.age" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Address</label>
+                    <textarea class="form-control" [(ngModel)]="newStudent.address"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>City</label>
+                    <select class="form-control" [(ngModel)]="newStudent.city">
+                        <option value="">Select</option>
+                        <option value="indore">Indore</option>
+                        <option value="mumbai">Mumbai</option>
+                        <option value="pune">Pune</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Fee</label>
+                    <input type="text" [(ngModel)]="newStudent.fee" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Gender</label>
+                    <br />
+                    Male <input type="radio" value="male" [(ngModel)]="newStudent.gender" />
+                    Female <input type="radio" value="female"  [(ngModel)]="newStudent.gender"/>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button data-dismiss="modal" (click)="add()" class="btn btn-success">{{ newStudent._id ? "Update" : "Add" }}</button>
+                <button data-dismiss="modal" class="btn btn-danger">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -22,6 +22,10 @@ import { ChildBoxComponent } from './shared/child-box/child-box.component';
 import { ParentComponent } from './shared/parent/parent.component';
 import { ChildComponent } from './shared/child/child.component';
 import { StudentComponent } from './pages/student/student.component';
+import { DemoComponent } from './pages/demo/demo.component';
+
+
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -42,12 +46,14 @@ import { StudentComponent } from './pages/student/student.component';
     ChildBoxComponent,
     ParentComponent,
     ChildComponent,
-    StudentComponent
+    StudentComponent,
+    DemoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

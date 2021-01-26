@@ -11,10 +11,16 @@ import { ServiceComponent } from './pages/service/service.component';
 import { TermsComponent } from './pages/terms/terms.component';
 import { StudentComponent } from './pages/student/student.component';
 
+import { DemoComponent } from './pages/demo/demo.component';
+
 const routes: Routes = [
   {
     path : "",  // localhost:4200
     component : HomeComponent
+  },
+  {
+    path : "demo",
+    component : DemoComponent
   },
   {
     path : "student",
