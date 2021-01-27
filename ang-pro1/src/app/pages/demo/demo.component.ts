@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { StudentService } from '../../services/student.service';
+
 
 
 @Component({
@@ -10,6 +11,7 @@ import { HttpClient } from '@angular/common/http';
 export class DemoComponent implements OnInit {
 
   student;
+  msg;
 
   newStudent = {
     name : "",
@@ -19,21 +21,30 @@ export class DemoComponent implements OnInit {
     fee : null
   }
   
-  constructor(private _http : HttpClient) {
-    this._http.get("http://localhost:3000/api/demo").subscribe((result)=>{
-      console.log(result);
+  constructor(private _stu : StudentService){
+    this._stu.getStudent().subscribe((result)=>{
       this.student = result;
-    });
-   }
-
-  ngOnInit() {
-  }
-
-
-  add(){
-    this._http.post("http://localhost:3000/api/demo", this.newStudent).subscribe((result)=>{
-      // console.log(result);
-      this.student.push(this.newStudent);
     })
   }
+  
+
+  ngOnInit() {
+    
+  }
+
+    add(){
+      this._stu.saveStudent(this.newStudent).subscribe((result)=>{
+        if(result._id)
+        {
+          this.msg="Data Saved Successfuly";
+          this.student.push(result);
+        }
+        else
+        {
+          this.msg="Somthing went wrong !";
+
+        }
+      })
+    }
+
 }

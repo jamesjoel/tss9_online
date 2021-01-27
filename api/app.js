@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 
 
-app.get("/api/demo", (req, res)=>{
+app.get("/api/student", (req, res)=>{
     
     MongoClient.connect(url, function(err, con){
         var db = con.db("tss9");
@@ -23,11 +23,12 @@ app.get("/api/demo", (req, res)=>{
 
 });
 
-app.post("/api/demo", (req, res)=>{
+app.post("/api/student", (req, res)=>{
     MongoClient.connect(url, function(err, con){
         var db = con.db("tss9");
         db.collection('student').insertOne(req.body, function(err, result){
-            res.send(result);
+            
+            res.send(result.ops[0]);
         })
     })
 })

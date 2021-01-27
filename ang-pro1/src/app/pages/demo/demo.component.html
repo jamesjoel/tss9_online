@@ -1,6 +1,11 @@
+
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-10 offset-md-1">
+            <div *ngIf="msg" class="alert alert-warning">
+                <span>{{ msg }}</span>
+                <button data-dismiss="alert" class="close">X</button>
+            </div>
             <br />
             <!-- <pre>{{ newStudent | json }}</pre>  -->
             <button data-toggle="modal" data-target="#addModal" class="btn btn-info btn-sm">Add Student</button>
