@@ -17,6 +17,18 @@ var mongo = require("mongodb");
 
 var url = "mongodb://localhost:27017";
 
+/*
+    get data   ----- localhost:3000/student
+    post data   ----- localhost:3000/student
+    
+    (get)delete data   ----- localhost:3000/student/delete/12
+    
+    (post)edit data   ----- localhost:3000/student/edit/12
+
+
+*/
+
+
 
 routes.get("/", (req, res)=>{
     MongoClient.connect(url, (err, con)=>{

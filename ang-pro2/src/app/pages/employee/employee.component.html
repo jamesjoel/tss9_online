@@ -1,1 +1,93 @@
-<p>employee works!</p>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <!-- <pre>{{ employee | json }}</pre> -->
+            <button class="btn btn-info" (click)="empty()" data-toggle="modal" data-target="#addModal">Add Employee</button>
+            <br />
+            
+            <table class="table table-dark table-hover table-bordered mt-3">
+                <tr>
+                    <th>S.No.</th>
+                    <th>Name</th>
+                    <th>Salary</th>
+                    <th>Age</th>
+                    
+                    <th>Gender</th>
+                    <th>Delete</th>
+                    <th>Edit</th>
+                </tr>
+                <tr *ngFor="let emp of employes; let n=index">
+                    <td>{{ n+1 }}</td>
+                    <td>{{ emp.name }}</td>
+                    <td>{{ emp.salary }}</td>
+                    <td>{{ emp.age }}</td>
+                    
+                    <td>{{ emp.gender }}</td>
+                    <td><button (click)="askDelete(emp)" data-toggle="modal" data-target="#delModal" class="btn btn-sm btn-danger">Delete</button></td>
+                    <td><button (click)="askEdit(emp)" data-toggle="modal" data-target="#addModal" class="btn btn-sm btn-warning">Edit</button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="addModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>{{ employee._id ? "Update" : "Add New" }} Employee</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" [(ngModel)]="employee.name" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Salary</label>
+                    <input type="text" [(ngModel)]="employee.salary" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Age</label>
+                    <input type="text" [(ngModel)]="employee.age" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Address</label>
+                    <textarea [(ngModel)]="employee.address" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Gender</label>
+                    <br />
+                    Male <input type="radio" value="male" name="gender" [(ngModel)]="employee.gender" />
+                    Female <input type="radio" value="female" name="gender" [(ngModel)]="employee.gender"/>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button (click)="add()" class="btn btn-success" data-dismiss="modal">{{ employee._id ? "Update" : "Add" }}</button>
+                <button class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="modal fade" id="delModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>Delete Employee !</h4>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure want to Delete <b>{{ employee.name }}</b> !</p>
+            </div>
+            <div class="modal-footer">
+                <button (click)="delete()" class="btn btn-dark" data-dismiss="modal">Delete</button>
+                <button class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
