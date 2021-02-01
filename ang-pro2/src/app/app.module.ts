@@ -10,6 +10,8 @@ import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { EmployeeComponent } from './pages/employee/employee.component';
+import { LoginComponent } from './pages/login/login.component';
+import { SignupComponent } from './pages/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { EmployeeComponent } from './pages/employee/employee.component';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,

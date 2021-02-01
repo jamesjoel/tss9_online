@@ -1,0 +1,50 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 mt-4 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Registration</h4>
+                </div>
+                <div class="card-body">
+                     
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" [(ngModel)]="user.full_name" class="form-control" />
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" [(ngModel)]="user.username" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" [(ngModel)]="user.password" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Address</label>
+                        <textarea class="form-control" [(ngModel)]="user.address" ></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>City</label>
+                        <select [(ngModel)]="user.city" class="form-control">
+                            <option value="">Select</option>
+                            <option value="indore">Indore</option>
+                            <option value="mumbai">Mumbai</option>
+                            <option value="pune">Pune</option>
+                            <option value="bhopal">Bhopal</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <br />
+                        Male <input type="radio" [(ngModel)]="user.gender" value="male" />
+                        Female <input type="radio" [(ngModel)]="user.gender" value="female" />
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button (click)="add()" class="btn btn-primary">Signup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
