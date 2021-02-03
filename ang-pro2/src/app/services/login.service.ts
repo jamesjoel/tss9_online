@@ -11,4 +11,13 @@ export class LoginService {
   do_login(obj){
     return this._http.post<any>("http://localhost:3000/api/login", obj);
   }
+  isLoggedIn(){
+    if(localStorage.getItem("token"))
+    {
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
 }

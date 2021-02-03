@@ -5,6 +5,7 @@ var bodyParser = require("body-parser");
 var sha1 = require("sha1");
 var MongoClient = require("mongodb").MongoClient;
 var url = "mongodb://localhost:27017";
+var jwt = require("jsonwebtoken");
 
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
@@ -18,9 +19,10 @@ app.post("/api/login", (req, res)=>{
             // console.log(result);
             if(result.length == 1)
             {
-                if(result[0].password == sha1(req.body.password))
+                if(result[0].password == req.body.password)
                 {
-                    res.status(200).json({ success : true });
+                    var token = jwt.sign({ userid : result[0]._id}, "hello", { expiresIn : '24h'});
+                    res.status(200).json({ success : true, token });
                 }
                 else
                 {

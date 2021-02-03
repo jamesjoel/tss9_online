@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -16,14 +17,17 @@ export class LoginComponent implements OnInit {
   msg = "";
 
 
-  constructor(private _auth : AuthService) { }
+  constructor(private _auth : AuthService, private _router : Router) { }
 
   ngOnInit() {
   }
 
   login(){
     this._auth.do_login(this.user).subscribe((result)=>{
-      console.log(result);
+      // console.log(result);
+      localStorage.setItem("token", result.token);
+      this._router.navigate(["/dashboard"]);
+
     }, (err)=>{
       //console.log(err.error);
       if(err.error.type==1){
@@ -34,6 +38,7 @@ export class LoginComponent implements OnInit {
       {
         this.showMsg=true;
         this.msg = "This Password is Incorrect !";
+        this.user.password = "";
 
       }
     })
