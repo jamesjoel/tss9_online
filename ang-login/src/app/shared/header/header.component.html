@@ -15,6 +15,9 @@
         </li>
         <ng-template  [ngIf]="_auth.isLoggedIn()" [ngIfElse]="elseBox">
           <li class="nav-item">
+            <a class="nav-link" routerLink="profile">Profile</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" routerLink="dashboard">Dashboard</a>
           </li>
           <li class="nav-item">
