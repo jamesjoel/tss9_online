@@ -1,0 +1,32 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 mt-3 offset-md-2">
+            <table class="table table-hover table-dark table-bordered">
+                <tr>
+                    <th>S.No.</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <Th>Fee</Th>
+                    <th>Discount</th>
+                    <th>Gender</th>
+                </tr>
+                <tr *ngFor="let s of student; let n = index">
+                    <td>{{ n+1 }}</td>
+                    <td>{{ s.name }}</td>
+                    <td>{{ s.age }}</td>
+                    <td>{{ s.fee | currency : '&#8377;' }}</td>
+                    <td>{{ s.age | discount : s.fee | currency : '&#8377;' }}</td>
+                    <td>{{ s.gender }}</td>
+                </tr>
+
+            </table>
+
+            <br />
+            <p #abc>hello world</p>
+            <button (click)="demo(abc)" class="btn btn-primary">OK</button>
+        </div>
+        
+
+        
+    </div>
+</div>

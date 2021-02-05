@@ -12,6 +12,8 @@ import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { StudentComponent } from './pages/student/student.component';
+import { DiscountPipe } from './pipes/discount.pipe';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { ProfileComponent } from './pages/profile/profile.component';
     HeaderComponent,
     FooterComponent,
     DashboardComponent,
-    ProfileComponent
+    ProfileComponent,
+    StudentComponent,
+    DiscountPipe
     
   ],
   imports: [
