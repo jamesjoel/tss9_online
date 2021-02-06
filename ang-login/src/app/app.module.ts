@@ -14,6 +14,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { StudentComponent } from './pages/student/student.component';
 import { DiscountPipe } from './pipes/discount.pipe';
+import { MydirDirective } from './directives/mydir.directive';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { DiscountPipe } from './pipes/discount.pipe';
     DashboardComponent,
     ProfileComponent,
     StudentComponent,
-    DiscountPipe
+    DiscountPipe,
+    MydirDirective
     
   ],
   imports: [
