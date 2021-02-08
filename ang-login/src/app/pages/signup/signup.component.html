@@ -1,1 +1,72 @@
-<p>signup works!</p>
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form [formGroup]="user">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Registartion</h4>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input [ngClass]="{ 'is-invalid': checkSubmit && user.controls.name.errors }" formControlName="name" type="text" class="form-control" />
+                        <div *ngIf="checkSubmit && user.controls.name.errors"  class="invalid-feedback">
+                            <div *ngIf="user.controls.name.errors.required">
+                                Insert Your Full Name
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input [ngClass]="{ 'is-invalid' : checkSubmit && user.controls.email.errors }" formControlName="email" type="text" class="form-control" />
+                        <div *ngIf="checkSubmit && user.controls.email.errors" class="invalid-feedback">
+                            <div *ngIf="user.controls.email.errors.required">
+                                Insert Your Eamil
+                            </div>
+                            <div *ngIf="user.controls.email.errors.email">
+                                Your Email id is not correct
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input [ngClass]="{'is-invalid': checkSubmit && user.controls.password.errors }" formControlName="password" type="password" class="form-control" >
+                        <div *ngIf="checkSubmit && user.controls.password.errors" class="invalid-feedback">
+                            <div *ngIf="user.controls.password.errors.required">
+                                Insert Your Password
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Re- Password</label>
+                        <input [ngClass]="{'is-invalid': checkSubmit && user.controls.re_pass.errors }" formControlName="re_pass" type="password" class="form-control" >
+                        <div *ngIf="checkSubmit && user.controls.re_pass.errors" class="invalid-feedback">
+                            <div *ngIf="user.controls.re_pass.errors.required">
+                                Insert Your Re-Password
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <div class="form-group">
+                        <label>Select Image</label>
+                        <input [ngClass]="{'is-invalid': checkSubmit && user.controls.image.errors }" formControlName="image" type="file" class="form-control" >
+                        <div *ngIf="checkSubmit && user.controls.re_pass.errors" class="invalid-feedback">
+                            <div *ngIf="user.controls.image.errors.required">
+                                Select Your Image
+                            </div>
+                        </div>
+                    </div> -->
+
+                </div>
+                <div class="card-footer">
+                    <button type="submit" (click)="save()" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
