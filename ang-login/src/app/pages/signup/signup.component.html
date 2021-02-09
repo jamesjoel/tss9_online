@@ -48,18 +48,47 @@
                             <div *ngIf="user.controls.re_pass.errors.required">
                                 Insert Your Re-Password
                             </div>
+
+                            <div *ngIf="user.controls.re_pass.errors.machErr">
+                                Password and Re-Password not matched
+                            </div>
+
+
                         </div>
                     </div>
 
-                    <!-- <div class="form-group">
+                    <div class="form-group">
+                        <label>Contact</label>
+                        <input [ngClass]="{'is-invalid': checkSubmit && user.controls.contact.errors }" formControlName="contact" type="password" class="form-control" >
+                        <div *ngIf="checkSubmit && user.controls.contact.errors" class="invalid-feedback">
+                            <div *ngIf="user.controls.contact.errors.required">
+                                Insert Your Contact Number
+                            </div>
+                            <div *ngIf="user.controls.contact.errors.contacterr">
+                                Contact Number must be a Number
+                            </div>
+                            <div *ngIf="user.controls.contact.errors.lengtherr">
+                                Contact Number length is less then 10 digit
+                            </div>
+                            
+
+                            
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         <label>Select Image</label>
                         <input [ngClass]="{'is-invalid': checkSubmit && user.controls.image.errors }" formControlName="image" type="file" class="form-control" >
                         <div *ngIf="checkSubmit && user.controls.re_pass.errors" class="invalid-feedback">
                             <div *ngIf="user.controls.image.errors.required">
                                 Select Your Image
                             </div>
+                            <div *ngIf="user.controls.image.errors.imgerr">
+                                Select Only .jpg or .jpeg files
+                            </div>
                         </div>
-                    </div> -->
+                    </div>
 
                 </div>
                 <div class="card-footer">
@@ -70,3 +99,4 @@
         </div>
     </div>
 </div>
+

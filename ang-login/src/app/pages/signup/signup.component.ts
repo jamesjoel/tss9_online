@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { MachPass, chekNum, imageCheck } from '../../helpers/val.helper';
 
 
 @Component({
@@ -27,10 +28,14 @@ export class SignupComponent implements OnInit {
       name : ["", Validators.required],
       email : ["", [Validators.required, Validators.email]],
       password : ["", Validators.required],
-      re_pass : ["", Validators.required]
-      // contact : ["", Validators.required]
-      // image : ["", Validators.required]
-    })
+      re_pass : ["", Validators.required],
+      contact : ["", Validators.required],
+      image : ["", Validators.required]
+   },
+   {
+     validator :[MachPass('password', 're_pass'), chekNum('contact'), imageCheck('image')]
+   }
+   )
 
   }
 
