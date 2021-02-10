@@ -2,11 +2,16 @@
 
 <h1 Mydir>hello world</h1>
 
-<input type="file" #myfile/>
+<input type="file" #myfile (change)="upload(myfile)"/>
 <br />
+<br />
+<input type="text" [(ngModel)]="name"/>
+
+<br />
+
 <Br />
 <button (click)="upload(myfile)" class="btn btn-success">Upload</button>
 <Br />
-<div *ngFor="let a of filearr">
+<span *ngFor="let a of filearr">
     <img [src]="a.filepath" height="200" />
-</div>
+</span>

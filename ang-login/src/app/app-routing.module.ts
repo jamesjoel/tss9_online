@@ -7,6 +7,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { BackdoorGuard } from './guards/backdoor.guard';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { StudentComponent } from './pages/student/student.component';
+import { StatecityComponent } from './pages/statecity/statecity.component';
 
 
 
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path : "student",
     component : StudentComponent
+  },
+  {
+    path : "statecity",
+    component : StatecityComponent
   }
 ];
 

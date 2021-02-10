@@ -8,6 +8,7 @@ var mongodb = require("mongodb");
 var url = "mongodb://localhost:27017";
 var jwt = require("jsonwebtoken");
 var upload = require("express-fileupload");
+
 app.use(express.static(__dirname+"/assets"));
 
 app.use(bodyParser.urlencoded());
@@ -16,16 +17,30 @@ app.use(cors());
 app.use(upload());
 
 
+
+
 app.post("/api/upload", (req, res)=>{
-    // console.log(req.files);
+    console.log(req.files);
+    // console.log(req.body);
     var file = req.files.myfile;
     file.mv(__dirname+"/assets/images/"+file.name, function(err){
-        // console.log("file upload");
-        var filepath = "http://localhost:3000/assets/images/"+file.name;
+        var filepath = "http://localhost:3000/images/"+file.name;
         res.send({ filepath : filepath });
     })
 })
 // <img src="/images/1.jpg"
+
+app.get("/api/statecity", (req, res)=>{
+    MongoClient.connect(url, (err, con)=>{
+        var db = con.db("tss9");
+        db.collection("citystate").find({}).toArray((err, result)=>{
+            res.send(result);
+        })
+    })
+})
+
+
+
 
 app.post("/api/login", (req, res)=>{
   
