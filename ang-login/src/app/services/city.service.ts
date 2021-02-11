@@ -11,4 +11,9 @@ export class CityService {
   getCityState(){
     return this._http.get<any>("http://localhost:3000/api/statecity");
   }
+  
+  getcity(state){
+    return this._http.post<any>("http://localhost:3000/api/statecity", { state : state });
+
+  }
 }

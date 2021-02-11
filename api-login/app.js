@@ -16,6 +16,11 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(upload());
 
+// localhost:3000
+app.get("/", (req, res)=>{
+    res.sendFile(__dirname+"/index.html");
+});
+
 
 
 
@@ -33,7 +38,18 @@ app.post("/api/upload", (req, res)=>{
 app.get("/api/statecity", (req, res)=>{
     MongoClient.connect(url, (err, con)=>{
         var db = con.db("tss9");
-        db.collection("citystate").find({}).toArray((err, result)=>{
+        db.collection("state").distinct("state", function(err, result){
+            // console.log(result);
+            res.send(result);
+        })
+    })
+});
+
+app.post("/api/statecity", (req, res)=>{
+    // console.log(req.body);
+    MongoClient.connect(url, (err, con)=>{
+        var db = con.db("tss9");
+        db.collection("state").find({ state : req.body.state }).toArray(function(err, result){
             res.send(result);
         })
     })
