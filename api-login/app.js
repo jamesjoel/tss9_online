@@ -22,6 +22,28 @@ app.get("/", (req, res)=>{
 });
 
 
+app.get("/api/employee", (req, res)=>{
+    MongoClient.connect(url, (err, con)=>{
+        var db = con.db("tss9");
+        db.collection("employee").find().toArray((err, result)=>{
+            res.send(result);
+        })
+    })
+});
+
+app.get("/api/employee/:id", (req, res)=>{
+    MongoClient.connect(url, (err, con)=>{
+        var db = con.db("tss9");
+        db.collection("employee").find({ _id : mongodb.ObjectId(req.params.id) }).toArray((err, result)=>{
+            res.send(result[0]);
+        })
+    })
+})
+
+
+
+
+
 
 
 app.post("/api/upload", (req, res)=>{

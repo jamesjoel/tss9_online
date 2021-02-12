@@ -19,6 +19,8 @@ import { StudentComponent } from './pages/student/student.component';
 import { DiscountPipe } from './pipes/discount.pipe';
 import { MydirDirective } from './directives/mydir.directive';
 import { StatecityComponent } from './pages/statecity/statecity.component';
+import { EmployeeComponent } from './pages/employee/employee.component';
+import { EditemployeeComponent } from './pages/editemployee/editemployee.component';
 
 
 @NgModule({
@@ -34,7 +36,9 @@ import { StatecityComponent } from './pages/statecity/statecity.component';
     StudentComponent,
     DiscountPipe,
     MydirDirective,
-    StatecityComponent
+    StatecityComponent,
+    EmployeeComponent,
+    EditemployeeComponent
     
   ],
   imports: [

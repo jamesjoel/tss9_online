@@ -8,6 +8,8 @@ import { BackdoorGuard } from './guards/backdoor.guard';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { StudentComponent } from './pages/student/student.component';
 import { StatecityComponent } from './pages/statecity/statecity.component';
+import { EmployeeComponent } from './pages/employee/employee.component';
+import { EditemployeeComponent } from './pages/editemployee/editemployee.component';
 
 
 
@@ -41,6 +43,14 @@ const routes: Routes = [
   {
     path : "statecity",
     component : StatecityComponent
+  },
+  {
+    path : "employee",
+    component : EmployeeComponent
+  },
+  {
+    path : "employee/edit/:id",
+    component : EditemployeeComponent
   }
 ];
 
