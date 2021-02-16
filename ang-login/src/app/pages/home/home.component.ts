@@ -11,7 +11,10 @@ export class HomeComponent implements OnInit {
   constructor(private _http : HttpClient) { }
 
   filearr=[];
-  name="";
+  user={
+    name : "rohit",
+    age : 25
+  };
 
   ngOnInit() {
   }
@@ -23,8 +26,10 @@ export class HomeComponent implements OnInit {
 
     let form = new FormData();
     form.append("myfile", filedata); // req.files
-    // form.append("formobj", this.name); // req.body
+    form.append("formobj", JSON.stringify(this.user)); // req.body
+    // form.append("formobj", JSON.stringify(this.user.value)); // req.body
    // form.append("age", "25"); // req.body
+
 
     this._http.post<any>("http://localhost:3000/api/upload", form).subscribe((result)=>{
       //console.log(result);

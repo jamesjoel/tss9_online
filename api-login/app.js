@@ -48,7 +48,9 @@ app.get("/api/employee/:id", (req, res)=>{
 
 app.post("/api/upload", (req, res)=>{
     console.log(req.files);
-    // console.log(req.body);
+    // console.log(req.body.formobj);
+    var form = req.body.formobj;
+    console.log(JSON.parse(form));
     var file = req.files.myfile;
     file.mv(__dirname+"/assets/images/"+file.name, function(err){
         var filepath = "http://localhost:3000/images/"+file.name;
