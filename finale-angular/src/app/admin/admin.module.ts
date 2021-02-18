@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
@@ -11,6 +12,7 @@ import { CategoryComponent } from './pages/category/category.component';
 import { UsersComponent } from './pages/users/users.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { LoginService } from './services/login.service';
+import { CategoryService } from '../services/category.service';
 
 @NgModule({
   declarations: [AdminComponent, LoginComponent, ProductComponent, CategoryComponent, UsersComponent, HeaderComponent],
@@ -18,8 +20,9 @@ import { LoginService } from './services/login.service';
     CommonModule,
     AdminRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
-  providers : [LoginService]
+  providers : [LoginService, CategoryService]
 })
 export class AdminModule { }

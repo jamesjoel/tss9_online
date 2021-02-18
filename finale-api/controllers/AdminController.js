@@ -1,6 +1,7 @@
 var AdminModel = require("../models/AdminModel");
 var jwt = require("jsonwebtoken");
 var sha1 = require("sha1");
+var config = require("../config/config");
 exports.login = (req, res)=>{
     // console.log(req.body);
     var u = req.body.username;
@@ -11,7 +12,7 @@ exports.login = (req, res)=>{
         {
             if(result[0].password == sha1(p))
             {
-                var token = jwt.sign({ adminid : result[0]._id }, "my porject", { expiresIn : "24h" });
+                var token = jwt.sign({ adminid : result[0]._id }, config.tokenKey, { expiresIn : "24h" });
                 res.status(200).json({ success : true, token });
 
             }

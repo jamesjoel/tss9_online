@@ -1,4 +1,4 @@
-<app-header></app-header>
+<app-header *ngIf="_loginServ.isLoggedIn()"></app-header>
 <div style="min-height: 700;">
     <router-outlet></router-outlet>
 </div>
