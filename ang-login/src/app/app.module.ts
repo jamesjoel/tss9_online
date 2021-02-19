@@ -21,6 +21,7 @@ import { MydirDirective } from './directives/mydir.directive';
 import { StatecityComponent } from './pages/statecity/statecity.component';
 import { EmployeeComponent } from './pages/employee/employee.component';
 import { EditemployeeComponent } from './pages/editemployee/editemployee.component';
+import { TestComponent } from './pages/test/test.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { EditemployeeComponent } from './pages/editemployee/editemployee.compone
     MydirDirective,
     StatecityComponent,
     EmployeeComponent,
-    EditemployeeComponent
+    EditemployeeComponent,
+    TestComponent
     
   ],
   imports: [

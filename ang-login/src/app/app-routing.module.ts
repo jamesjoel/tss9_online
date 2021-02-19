@@ -10,6 +10,7 @@ import { StudentComponent } from './pages/student/student.component';
 import { StatecityComponent } from './pages/statecity/statecity.component';
 import { EmployeeComponent } from './pages/employee/employee.component';
 import { EditemployeeComponent } from './pages/editemployee/editemployee.component';
+import { TestComponent } from './pages/test/test.component';
 
 
 
@@ -51,6 +52,10 @@ const routes: Routes = [
   {
     path : "employee/edit/:id",
     component : EditemployeeComponent
+  },
+  {
+    path : "test",
+    component : TestComponent
   }
 ];
 
