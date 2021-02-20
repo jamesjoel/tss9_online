@@ -22,6 +22,6 @@ module.exports.update = function(where, obj, cb){
 module.exports.delete = function(where, cb){
     database(function(err, con){
         var db = con.db("tss9");
-        db.collection("product").remove(obj, cb);
+        db.collection("product").remove(where, cb);
     })
 }

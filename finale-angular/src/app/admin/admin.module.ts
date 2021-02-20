@@ -13,6 +13,7 @@ import { UsersComponent } from './pages/users/users.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { LoginService } from './services/login.service';
 import { CategoryService } from '../services/category.service';
+import { ProductService } from '../services/product.service';
 
 @NgModule({
   declarations: [AdminComponent, LoginComponent, ProductComponent, CategoryComponent, UsersComponent, HeaderComponent],
@@ -23,6 +24,6 @@ import { CategoryService } from '../services/category.service';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers : [LoginService, CategoryService]
+  providers : [LoginService, CategoryService, ProductService]
 })
 export class AdminModule { }

@@ -40,10 +40,10 @@ export class CategoryComponent implements OnInit {
       this._cateServ.update(this.category.value).subscribe((result)=>{
         if(result.nModified==1){
           // alert();
-          console.log("----------", this.category.value);
-          console.log("**********", this.cateArr);
-          for(var i = 0; i < this.cateArr; i++)
+          
+          for(var i = 0; i < this.cateArr.length; i++)
           {
+          
             if(this.cateArr[i]._id == this.category.value._id)
             {
               this.cateArr[i] = this.category.value;
