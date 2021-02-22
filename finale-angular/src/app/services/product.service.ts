@@ -15,8 +15,7 @@ export class ProductService {
       { headers : { Authorization : localStorage.getItem("admintoken") } });
   }
   getall(){
-    return this._http.get<any>(this.apiUrl, 
-      { headers : { Authorization : localStorage.getItem("admintoken") } });
+    return this._http.get<any>(this.apiUrl);
   }
   delete(obj){
     return this._http.delete<any>(this.apiUrl+"/"+obj._id, 

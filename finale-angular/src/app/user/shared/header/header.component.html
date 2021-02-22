@@ -24,6 +24,19 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" routerLink="signup">Signup</a>
+
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="pagination">Pagination</a>
+
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" style="cursor:pointer;" data-toggle="dropdown" >Category</a>
+            
+            <div class="dropdown-menu">
+              <a class="dropdown-item" *ngFor="let c of category" href="#">{{ c.name }}</a>
+              
+            </div>
           </li>
       </ul>
     </div>

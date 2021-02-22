@@ -86,3 +86,16 @@ export class CategoryComponent implements OnInit {
     this.category.setValue(obj);
   }
 }
+/*
+
+demo(a:number, b:String){
+
+
+
+}
+
+ser.demo(10, 20);
+
+
+
+*/

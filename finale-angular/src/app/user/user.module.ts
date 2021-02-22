@@ -10,13 +10,18 @@ import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { CategoryService } from '../services/category.service';
+import { ProductBoxComponent } from './shared/product-box/product-box.component';
+import { ProductService } from '../services/product.service';
+import { PaginationComponent } from './pages/pagination/pagination.component';
 
 
 @NgModule({
-  declarations: [UserComponent, HomeComponent, AboutComponent, ContactComponent, LoginComponent, SignupComponent, HeaderComponent, FooterComponent],
+  declarations: [UserComponent, HomeComponent, AboutComponent, ContactComponent, LoginComponent, SignupComponent, HeaderComponent, FooterComponent, ProductBoxComponent, PaginationComponent],
   imports: [
     CommonModule,
     UserRoutingModule
-  ]
+  ],
+  providers : [CategoryService, ProductService]
 })
 export class UserModule { }
