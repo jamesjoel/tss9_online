@@ -14,6 +14,7 @@ import { CategoryService } from '../services/category.service';
 import { ProductBoxComponent } from './shared/product-box/product-box.component';
 import { ProductService } from '../services/product.service';
 import { PaginationComponent } from './pages/pagination/pagination.component';
+import { PageService } from '../services/page.service';
 
 
 @NgModule({
@@ -22,6 +23,6 @@ import { PaginationComponent } from './pages/pagination/pagination.component';
     CommonModule,
     UserRoutingModule
   ],
-  providers : [CategoryService, ProductService]
+  providers : [CategoryService, ProductService, PageService]
 })
 export class UserModule { }
