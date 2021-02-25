@@ -15,4 +15,8 @@ export class PageService {
     
     return this._http.get<any>("http://localhost:3000/api/citystate/total");
   }
+  getLimitSkip(recPerPage, skip){
+    
+    return this._http.get<any>("http://localhost:3000/api/citystate/"+recPerPage+"/"+skip);
+  }
 }

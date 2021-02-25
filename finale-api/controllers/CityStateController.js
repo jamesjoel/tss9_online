@@ -19,6 +19,21 @@ exports.getLimited = (req, res)=>{
     })
 }
 
+exports.getLimitedSkip = (req, res)=>{
+    // console.log(req.params); { a : '100'}
+    // console.log(req.params); { a : 100 }
+    var x = parseInt(req.params.a); // 100
+    var y = parseInt(req.params.b); // 9
+    var z = (y-1)*x; // 800
+   
+    database(function(err, con){
+        var db = con.db("tss9");
+        db.collection("state").find().skip(z).limit(x).toArray(function(err, result){
+            res.send(result);
+        })
+    })
+}
+
 
 
 exports.total = (req, res)=>{
