@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { DemoService } from '../../services/demo.service';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +9,13 @@ import { AuthService } from '../../services/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(public _auth : AuthService) { }
-
+  name ="rohit";
+  constructor(public _auth : AuthService, public _demo : DemoService) { }
+  total;
   ngOnInit() {
+    this._demo.a.subscribe((result)=>{
+      this.total = result;
+    })
   }
 
 }

@@ -15,10 +15,12 @@ import { ProductBoxComponent } from './shared/product-box/product-box.component'
 import { ProductService } from '../services/product.service';
 import { PaginationComponent } from './pages/pagination/pagination.component';
 import { PageService } from '../services/page.service';
+import { MycartComponent } from './pages/mycart/mycart.component';
+
 
 
 @NgModule({
-  declarations: [UserComponent, HomeComponent, AboutComponent, ContactComponent, LoginComponent, SignupComponent, HeaderComponent, FooterComponent, ProductBoxComponent, PaginationComponent],
+  declarations: [UserComponent, HomeComponent, AboutComponent, ContactComponent, LoginComponent, SignupComponent, HeaderComponent, FooterComponent, ProductBoxComponent, PaginationComponent, MycartComponent],
   imports: [
     CommonModule,
     UserRoutingModule

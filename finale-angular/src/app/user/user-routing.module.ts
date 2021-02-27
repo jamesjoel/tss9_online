@@ -7,6 +7,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { PaginationComponent } from './pages/pagination/pagination.component';
+import { MycartComponent } from './pages/mycart/mycart.component';
 
 
 
@@ -18,6 +19,10 @@ const routes: Routes = [
       {
         path : "",
         component : HomeComponent
+      },
+      {
+        path :"mycart",
+        component : MycartComponent
       },
       {
         path : "about",

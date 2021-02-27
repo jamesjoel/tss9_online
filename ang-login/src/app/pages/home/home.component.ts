@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient  } from '@angular/common/http';
+import  { DemoService } from '../../services/demo.service';
 
 @Component({
   selector: 'app-home',
@@ -8,13 +9,18 @@ import { HttpClient  } from '@angular/common/http';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private _http : HttpClient) { }
+  constructor(private _http : HttpClient, private _demo : DemoService) {
+    this._demo.updateA(500);
+   }
 
   filearr=[];
   user={
     name : "rohit",
     age : 25
   };
+  update(){
+    this._demo.updateA(5);
+  }
 
   ngOnInit() {
   }
