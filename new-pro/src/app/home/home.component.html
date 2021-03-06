@@ -1,0 +1,33 @@
+<div *ngIf="! show" class="container mt-5">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <h3>Example</h3>
+            <!-- <pre>{{ arr | json }}</pre> -->
+        <table class="table">
+            <tr>
+                <td>Name</td>
+                <td>Age</td>
+                <td>City</td>
+                <td>Remove</td>
+            </tr>
+            
+            <tr *ngFor="let a of arr; let n = index">
+                <td><input type="text" [(ngModel)]="a.name"  class="form-control" /></td>
+                <td><input type="text" [(ngModel)]="a.age" class="form-control" /></td>
+                <td><input type="text" [(ngModel)]="a.city" class="form-control" /></td>
+                <td><button *ngIf="n!=0" class="btn btn-danger" (click)="remove(n)">-</button></td>
+            </tr>
+
+
+
+        </table>
+        <button class="btn btn-sm btn-info" (click)="add()">+</button>
+        <br />
+        <br />
+        <button class="btn btn-primary" (click)="save()">Save</button>
+        </div>
+    </div>
+
+</div>
+
+<app-show *ngIf="show" [childArr]="arr" (editEvent)="edit()"></app-show>
