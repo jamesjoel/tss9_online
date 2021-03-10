@@ -1,0 +1,79 @@
+
+<div id="container" class="effect aside-float aside-bright mainnav-lg">    
+    <app-navbar></app-navbar>               
+       <div class="boxed">
+           <div id="content-container">
+            <div id="page-content">  
+            <!--CONTENT CONTAINER-->   
+<div class="row">
+    <div class="col-sm-12">
+        <a routerLink="/admin/addcategory" class="btn btn-rounded btn-info pull-right">Add New Category</a>
+    </div>
+</div>
+<br>
+<div class="panel">
+    <div class="panel-heading bord-btm clearfix pad-all h-100">
+        <h3 class="panel-title pull-left pad-no">Categories</h3>
+        <div class="pull-right clearfix">
+        </div>
+    </div>
+    {{category | json}}
+    <div class="panel-body">
+        <table class="table table-striped res-table mar-no" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name'</th>
+                    <th>Meta Title</th>               
+                    <th width="10%">Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr *ngFor="let c of category; let n=index">
+                        <td>{{n+1}}</td>
+                        <td>{{c.name}}</td>
+                        <td>{{c.meta_title}}</td>
+                        <td>
+                            <div class="btn-group dropdown">
+                                <button class="btn btn-primary dropdown-toggle dropdown-toggle-icon" data-toggle="dropdown" type="button">
+                                    Actions <i class="dropdown-caret"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li><a routerLink="/admin/edit/category/{{c._id}}">Edit</a></li>
+                                    <li><a data-toggle="modal" (click)="askdelete(c)" data-target="#Deletecat" >Delete</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+        <div class="clearfix">
+            <div class="pull-right">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="Deletecat">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                Delete Category
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete <b>{{deletecat.name}}</b>
+            </div>
+            <div class="modal-footer"> 
+             <button class="btn btn-success" (click)="dodelete()">Delete Category</button>
+             <button  class="btn btn-dark" data-dismiss="modal" id="dlt">Close</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+   <!---Content End-->             
+</div> 
+</div>
+</div>          
+<app-sidenav></app-sidenav>
+<app-footer></app-footer>      
+</div>

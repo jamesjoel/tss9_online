@@ -1,0 +1,82 @@
+<div id="container" class="effect aside-float aside-bright mainnav-lg">    
+    <app-navbar></app-navbar>               
+            <div class="boxed">
+                <div id="content-container">.
+                    <div id="page-content">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <a class="btn btn-rounded btn-info pull-right" data-toggle="modal" data-target="#Addmodal">Add New Color</a>
+                            </div>
+                        </div>
+                            <div class="panel">
+                                <div class="panel-heading bord-btm clearfix pad-all h-100">
+                                    <h3 class="panel-title pull-left pad-no">Color</h3>
+                                    <div class="pull-right clearfix">
+                                    </div>
+                                </div>
+                                {{category | json}}
+                                <div class="panel-body">
+                                    <table class="table table-striped res-table mar-no" cellspacing="0" width="100%"> 
+                                        <tr> 
+                                            <th>#No</th>
+                                            <th>ColorCode</th>
+                                            <th>ColorName</th>
+                                            <th>Action</th>
+                                        </tr>
+                                            <tr *ngFor="let s of size; let n=index;">
+                                            <td>{{n+1}}</td>
+                                            <td>{{s.sizes}}</td>
+                                            <td>{{s.name}}</td>
+                                            <td><button class="btn btn-primary" (click)="doedit(s)" data-toggle="modal" data-target="#Addmodal">Edit</button></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                    <!--CONTENT CONTAINER-->       
+            <h1>suraj thakur</h1>
+            <div class="modal fade" id="Addmodal"  aria-hidden="true" >
+                <div class="modal-dialog" role="document"> 
+                <form [formGroup]="category_size">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button data-dismiss="modal" id="Closemodal" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="modal-body">
+                            <div form-group>
+                                <label>Sizes</label>
+                                <input [ngClass]="{'is-invalid' : checksubmit && category_size.controls.sizes.errors }" type="text" formControlName="sizes" 
+                                class="form-control">
+                               <div *ngIf="checksubmit && category_size.controls.sizes.errors" class="invali-feedback">
+                                   <div *ngIf="category_size.controls.sizes.errors.required" class="text-danger">
+                                       Size  is required
+                                   </div>
+                               </div>
+                            </div>
+                            <div form-group>
+                                <label>Name</label>
+                                 <input [ngClass]="{'is-invalid':checksubmit && category_size.controls.name.errors}" type="text" formControlName="name"
+                                  class="form-control">
+                                <div *ngIf="checksubmit && category_size.controls.name.errors" class="invalid-feedback">
+                                    <div *ngIf="category_size.controls.name.errors.required" class="text-danger">
+                                        Size name is required
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button data-dismiss="modal" class="btn btn-primary">cancel</button>
+                            <button  class="btn btn-success" type="submit" (click)="doadd()"> success</button>  
+
+                        </div>
+
+                    </div>
+                </form>
+                </div>
+            </div>
+            <!---Content End-->             
+       </div> 
+   </div>
+   </div>          
+   <app-sidenav></app-sidenav>
+   <app-footer></app-footer>      
+   </div>  

@@ -1,0 +1,84 @@
+
+<div id="container" class="effect aside-float aside-bright mainnav-lg">    
+    <app-navbar></app-navbar>               
+       <div class="boxed">
+           <div id="content-container">
+            <div id="page-content">  
+            <!--CONTENT CONTAINER-->   
+<div class="row">
+    <div class="col-sm-12">
+        <a routerLink="/admin/addproduct" class="btn btn-rounded btn-info pull-right">Add New Category</a>
+    </div>
+</div>
+<br>
+<div class="panel">
+    <div class="panel-heading bord-btm clearfix pad-all h-100">
+        <h3 class="panel-title pull-left pad-no">Product</h3>
+        <div class="pull-right clearfix">
+        </div>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped res-table mar-no" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Icon</th>     
+                    <th>Name'</th>
+                    <th>category</th> 
+                    <th>subcategory</th>
+                     <th>Price</th>      
+                    <th width="10%">Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr *ngFor="let p of product; let n=index">
+                        <td>{{n+1}}</td>
+                        <td>{{p.icon}}</td>
+                        <td>{{p.name}}</td>
+                        <td>{{p.category_id}}</td>
+                        <td>{{p.subcategory_id}}</td>
+                        <td>{{p.purchase_price}}</td>
+                        <td>
+                            <div class="btn-group dropdown">
+                                <button class="btn btn-primary dropdown-toggle dropdown-toggle-icon" data-toggle="dropdown" type="button">
+                                    Actions <i class="dropdown-caret"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li><a>Edit</a></li>
+                                    <li><a data-toggle="modal" (click)="askdelete(p)" data-target="#Deletecat" >Delete</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+        <div class="clearfix">
+            <div class="pull-right">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="Deletecat">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                Delete Product
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete <b>{{deletecat.name}}</b>
+            </div>
+            <div class="modal-footer"> 
+             <button class="btn btn-success" (click)="dodelete()">Delete Product</button>
+             <button  class="btn btn-dark" data-dismiss="modal" id="dlt">Close</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+   <!---Content End-->             
+</div> 
+</div>
+</div>          
+<app-sidenav></app-sidenav>
+<app-footer></app-footer>      
+</div>

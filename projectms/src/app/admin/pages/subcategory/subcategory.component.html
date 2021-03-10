@@ -1,0 +1,146 @@
+<div id="container" class="effect aside-float aside-bright mainnav-lg">    
+    <app-navbar></app-navbar>               
+       <div class="boxed">
+           <div id="content-container">
+            <div id="page-content">  
+            <!--CONTENT CONTAINER-->         
+                <div class="row">
+                    <div class="col-sm-12">
+                        <a class="btn btn-rounded btn-info pull-right" (click)="empty()" data-toggle="modal" data-target="#Addmodal">Add New SubCategory</a>
+                    </div>
+                </div>
+                    <br>
+                    <div class="panel">
+                        <div class="panel-heading bord-btm clearfix pad-all h-100">
+                            <h3 class="panel-title pull-left pad-no">SubCategories</h3>
+                            <div class="pull-right clearfix">
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <ul class="pagination">
+                                <li *ngFor="let x of [].constructor(totalPages); let i=index" [ngClass]="{'active': aa==i+1 }" class="page-item">
+                                    <a  class="page-link" (click)="pagecall(i+1)">{{i+1}}</a>
+                                </li>                                
+                            </ul>
+                            <table class="table table-striped res-table mar-no" cellspacing="0" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Catgory</th>
+                                        <th>Subcategory</th>
+                                        <th>Meta Title</th>   
+                                        <th>image</th>            
+                                        <th width="10%">Options</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                        <tr *ngFor="let s of subcat; let n=index;" >
+                                            <td>{{n+1}}</td>
+                                            <td>{{s.category}}</td>
+                                            <td>{{s.name}}</td>
+                                            <td>{{s.meta_title}}</td>
+                                            <td><img src="http://localhost:3000/images/subcategory/{{s.image}}" width="100px"></td>
+                                            <td>
+                                                <div class="btn-group dropdown">
+                                                    <button class="btn btn-primary dropdown-toggle dropdown-toggle-icon" data-toggle="dropdown" type="button">
+                                                        Actions <i class="dropdown-caret"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu dropdown-menu-right">
+                                                        <li><a  data-toggle="modal" (click)="askedit(s)" data-target="#Addmodal">Edit</a></li>
+                                                        <li><a  (click)="askdelete(s)" data-toggle="modal" data-target="#Deletemodal">Delete</a></li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                            <div class="clearfix">
+                                <div class="pull-right">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" role="dialog" id="Addmodal" aria-hidden="true" >
+                        <div class="modal-dialog" role="document"> 
+                            <form [formGroup]="subcategory" enctype="multipart/form-data">
+                                <div class="modal-content"> 
+                                    <div class="modal-header">
+                                        <p>Subcategory</p>
+                                        <button data-dismiss="modal" id="Closemodal" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <label class="label-control">Subcategory</label>
+                                            <input [ngClass]="{'is-invalid':checksubmit && subcategory.controls.name.errors}" formControlName="name" type="text" class="form-control" placeholder="Name">
+                                            <div *ngIf="subcategory.controls.name.errors && checksubmit" class="invalid-feedback">
+                                                <div *ngIf="subcategory.controls.name.errors.required" class="text-danger">
+                                                    Insert Full Name Here
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{subcategory.value|json}}
+                                        <div class="form-group">
+                                            <label class="label-control">category</label>
+                                            <select [ngClass]="{'is-invalid':checksubmit && subcategory.controls.category.errors}" formControlName="category" class="form-control">
+                                                <option value="">Select category</option>
+                                                <option *ngFor="let x of cat;" value="{{x._id}}">{{x.name}}</option>
+                                            </select>
+                                            <div *ngIf="subcategory.controls.category.errors && checksubmit" class="invalid-feedback">
+                                            <div *ngIf="subcategory.controls.category.errors.required" class="text-danger">
+                                                Please Select category 
+                                            </div>
+                                        </div>                                    
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="label-control">Meta_title</label>
+                                            <input [ngClass]="{'is-invalid': checksubmit && subcategory.controls.meta_title.errors}" formControlName="meta_title" placeholder="meta-title" class="form-control" type="text">
+                                            <div *ngIf=" checksubmit && subcategory.controls.meta_title.errors" class="invalid-feedback">   
+                                                <div *ngIf="subcategory.controls.meta_title.errors.required" class="text-danger"> 
+                                                please fill the meta title
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>select subcategory image</label>
+                                            <input  formControlName="image" type="file" #image>
+                                               <div *ngIf="checksubmit && subcategory.controls.image.errors" class="invalid-feedback">
+                                                   <div *ngIf="subcategory.controls.image.errors.required" class="text-danger">
+                                                         please selcet image
+                                                   </div>     
+                                               </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button class="btn btn-primary" type="submit" (click)="addsub(image)">Subcategory</button>
+                                        <button class="btn btn-dark" data-dismiss="modal">Cancel</button>
+                                    </div>                               
+                                </div>
+                            </form>
+                         </div>
+                     </div>
+                     <div class="modal fade" role="dialog" id="Deletemodal" aria-hidden="true" >
+                       <div class="modal-dialog" role="document"> 
+                        <div class="modal-content"> 
+                            <div class="modal-header">
+                             <p>Delete Brand</p>
+                            <button data-dismiss="modal" id="Dclosemodal" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">                                    
+                                   <p>Are You sure to Delete &nbsp;<b>{{singlesub.name}}</b></p>                              </div>
+                            </div>
+                            <div class="modal-footer">
+                               <button class="btn btn-primary" (click)="dodelete()" >Delete Brand</button>
+                               <button class="btn btn-dark" data-dismiss="modal">Cancel</button>
+                            </div>
+                        </div>
+                         </div>
+                    </div>
+                     
+       <!---Content End-->             
+        </div> 
+        </div>
+        </div>          
+        <app-sidenav></app-sidenav>
+        <app-footer></app-footer>      
+        </div>

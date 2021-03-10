@@ -1,0 +1,263 @@
+<div id="container" class="effect aside-float aside-bright mainnav-lg">    
+    <app-navbar></app-navbar>               
+       <div class="boxed">
+           <div id="content-container">
+            <div id="page-content">  
+                <!--product content begain-->
+                <div>
+                    <h1 class="page-header text-overflow">Add New Product</h1>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <form [formGroup]="myproduct" class="form form-horizontal mar-top" enctype="multipart/form-data" id="choice_form">
+
+                            <input type="hidden" name="added_by" value="admin">
+                            <div class="panel">
+                                <div class="panel-heading bord-btm">
+                                    <h3 class="panel-title">Product Information</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label">Product Name</label>
+                                        <div class="col-lg-7">
+                                            <input [ngClass]="{'is-invalid':checksubmit && myproduct.controls.name.errors }" type="text" class="form-control" formControlName="name" placeholder="Product Name" required>
+                                            <div *ngIf="checksubmit && myproduct.controls.name.errors">
+                                                <div *ngIf="myproduct.controls.name.errors.required" class="text-danger">
+                                                    Please Enter Product Name
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="category">
+                                        <label class="col-lg-2 control-label">Category</label>
+                                        <div class="col-lg-7">
+                                            <select #cart (change)="get_subcate(cart)" [ngClass]="{'is-invalid':checksubmit && myproduct.controls.category_id.errors }" class="form-control demo-select2-placeholder" formControlName="category_id" id="category_id" required>
+                                                    <option value="">Select Category</option> 
+                                                    <option *ngFor="let c of cat;" value="{{c._id}}">{{ c.name}}</option>                                       
+                                            </select>
+                                           <div *ngIf="checksubmit && myproduct.controls.category_id.errors" class="invalid-feedback">
+                                               <div *ngIf="myproduct.controls.category_id.errors.required" class="text-danger"> 
+                                                    Please Select Category Name
+                                               </div>
+
+                                           </div> 
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="subcategory">
+                                        <label class="col-lg-2 control-label">Subcategory</label>
+                                        <div class="col-lg-7">
+                                            <select [ngClass]="{'is-invalid':checksubmit && myproduct.controls.subcategory_id.errors}" class="form-control demo-select2-placeholder" formControlName="subcategory_id" id="subcategory_id">
+                                                <option value="">Select Subcategory</option> 
+                                                <option *ngFor="let cst of subcate;" [value]="cst._id">{{cst.name}}</option>                                               
+                                            </select>
+                                            <div *ngIf="checksubmit && myproduct.controls.subcategory_id.errors" class="invalid-feedback">
+                                                <div *ngIf="myproduct.controls.subcategory_id.required" class="text-danger">
+                                                   please Select Subcategory Name
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>                                    
+                                    <div class="form-group" id="brand">
+                                        <label class="col-lg-2 control-label">Brand</label>
+                                        <div class="col-lg-7">
+                                            <select [ngClass]="{'is-invalid':checksubmit && myproduct.controls.brand_id.errors}" class="form-control demo-select2-placeholder" formControlName="brand_id" id="brand_id">
+                                                <option value="">Select Brand</option> 
+                                                <option *ngFor="let brnd of brands;" [value]="brnd._id">{{brnd.name}}</option>                                               
+                                            </select>
+                                            <div *ngIf="checksubmit && myproduct.controls.brand_id.errors" class="invalid-feedback">
+                                                  <div *ngIf="myproduct.controls.brand_id.errors.required" class="text-danger">
+                                                      Please Select Brand Name
+                                                  </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="unit">
+                                        <label class="col-lg-2 control-label">Unit</label>
+                                        <div class="col-lg-7">
+                                            <input [ngClass]="{'is-invalid':checksubmit && myproduct.controls.unit.errors }" type="text" class="form-control" formControlName="unit" placeholder="Product Unit" required>
+                                            <div *ngIf="checksubmit && myproduct.controls.unit.errors">
+                                                <div *ngIf="myproduct.controls.unit.errors.required" class="text-danger">
+                                                    Please Enter Product Name
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="qty">
+                                        <label class="col-lg-2 control-label">Minimum Qty</label>
+                                        <div class="col-lg-7">
+                                            <input [ngClass]="{'is-invalid':checksubmit && myproduct.controls.min_qty.errors }" type="text" class="form-control" min="1" formControlName="min_qty">
+                                            <div *ngIf="checksubmit && myproduct.controls.min_qty.errors" class="invalid-feedback">
+                                                <div *ngIf="myproduct.controls.min_qty.errors.required" class="text-danger">
+                                                        Quantity field is required
+                                                </div>
+                                                <div *ngIf="myproduct.controls.min_qty.errors.numerr">
+                                                    Take numbers only
+                                                </div>
+                                                <div *ngIf="myproduct.controls.min_qty.errors.lenerr">
+                                                      maximum 2 digit only
+                                                </div>
+                                            </div> 
+                                        </div>
+                                    </div>                               
+                                </div>
+                            </div>
+                            <div class="panel">
+                                <div class="panel-heading bord-btm">
+                                    <h3 class="panel-title">Product Images</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label">Gallery Images</label>
+                                        <div class="col-lg-7">
+                                            <div id="photos">
+                                              <input type="file" formControlName="product_img" #myfile multiple (change)="multi_img($event,myfile)">   
+                                              <span *ngFor="let url of urls" style="width:100px;;">
+                                                <img  [src]="url" alt='' width="100px;">
+                                            </span>
+                                            </div>
+                                            <div *ngIf="checksubmit && myproduct.controls.product_img.errors" class="invalid-feedback">
+                                            <div *ngIf=" myproduct.controls.product_img.errors.required" class="text-danger">Please select images </div>
+                                           
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label">Thumbnail Image<small>(290x300)</small></label>
+                                        <div class="col-lg-7">
+                                            <div id="thumbnail_img">
+                                                <input type="file" formControlName="thumbnail_img" #sfile>
+                                            </div>
+                                            <div *ngIf="checksubmit && myproduct.controls.thumbnail_img.errors" class="invalid-feedback">
+                                                
+                                            <div *ngIf="myproduct.controls.thumbnail_img.errors.required" class="text-danger">Please select images </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel">
+                                <div class="panel-heading bord-btm">
+                                    <h3 class="panel-title">Product Variation</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <div class="col-lg-2">
+                                            <label>color</label>
+                                        </div>
+                                        <div class="col-lg-7">
+                                            <select class="form-control" [ngClass]="{'is:invalid':checksubmit && myproduct.controls.colors.errors}" formControlName="colors" id="colors">
+                                                <option value="">Select Color </option>
+                                                <option value="{{c._id}}" *ngFor="let c of color;">{{c.color_name}}</option>
+                                            </select>
+                                        </div>
+                                        <div *ngIf="checksubmit && myproduct.controls.colors.errors" class="invalid-feedback">
+                                            <div *ngIf="myproduct.controls.colors.errors.required" class="text-danger">
+                                                Please Select Color
+                                            </div>
+
+                                        </div>
+                                    </div>                
+                                    <div class="form-group">
+                                        <div class="col-lg-2">
+                                            <label class="label-control">Size</label>
+                                        </div>
+                                        <div class="col-lg-7">
+                                            <select formControlName="size" [ngClass]="{'is-invalid':checksubmit && myproduct.controls.size.errors}" class="form-control"  data-placeholder="Choose Attributes">                
+                                                    <option >size</option>
+                                                    <option value="{{s._id}}" *ngFor="let s of size">{{s.name}}</option>                                                
+                                            </select>
+                                            <div *ngIf="checksubmit && myproduct.controls.size.errors" class="invalid-feedback">
+                                                   <div *ngIf="myproduct.controls.size.errors.required" class="text-danger">
+                                                            please select size
+                                                   </div>
+                                            </div>
+                                            
+                                    </div>            
+                                            
+                                   
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel">
+                                <div class="panel-heading bord-btm">
+                                    <h3 class="panel-title">Product price + stock</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label">Unit price</label>
+                                        <div class="col-lg-7">
+                                            <input type="number" [ngClass]="{'is-invalid':checksubmit && myproduct.controls.unit_price.errors}" min="0"  step="0.01" placeholder="Unit price" formControlName="unit_price" class="form-control" required>
+                                            <div *ngIf="checksubmit && myproduct.controls.unit_price.errors" class="invalid-feedback"> 
+                                                <div *ngIf="myproduct.controls.unit_price.errors.required" class="text-danger">
+                                                    please select size
+                                                </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label">Purchase price</label>
+                                        <div class="col-lg-7">
+                                            <input type="text" min="0" placeholder="Purchase price" [ngClass]="{'is-invalid':checksubmit && myproduct.controls.purchase_price.errors}" formControlName="purchase_price" class="form-control" required>
+                                            <div *ngIf="checksubmit && myproduct.controls.purchase_price.errors" class="invalid-feedback">
+                                                <div *ngIf="myproduct.controls.purchase_price.errors.required" class="text-danger">
+                                                    please select Purchase Price
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label">Tax</label>
+                                        <div class="col-lg-7">
+                                            <input type="number" min="0"  step="0.01" placeholder="Tax" formControlName="tax" class="form-control" required>
+                                        </div>
+                                        <div class="col-lg-1">
+                                            <select class="demo-select2" formControlName="tax_type">
+                                                <option >Flat</option>
+                                                <option >Percent</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label">Discount</label>
+                                        <div class="col-lg-7">
+                                            <input type="number" min="0"  step="0.01" placeholder="Discount" formControlName="discount" class="form-control" required>
+                                        </div>
+                                        <div class="col-lg-1">
+                                            <select class="demo-select2" formControlName="discount_type">
+                                                <option >Flat</option>
+                                                <option >Percent</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="sku_combination" id="sku_combination">
+                
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel">
+                                <div class="panel-heading bord-btm">
+                                    <h3 class="panel-title">Product Description</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label">Description</label>
+                                        <div class="col-lg-9">
+                                            <textarea class="editor" class="form-control" formControlName="description"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                
+                            <div class="mar-all text-right">
+                                <button type="submit" (click)="addpro(sfile)" name="button" class="btn btn-info">Add New Product</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- product content end -->
+            </div> 
+        </div>
+        </div>          
+        <app-sidenav></app-sidenav>
+        <app-footer></app-footer>      
+        </div>

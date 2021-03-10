@@ -1,0 +1,51 @@
+<div id="container" class="effect aside-float aside-bright mainnav-lg">    
+    <app-navbar></app-navbar>               
+       <div class="boxed">
+           <div id="content-container">
+            <div id="page-content">  
+            <!--CONTENT CONTAINER-->       
+<div class="col-lg-6 col-lg-offset-3">
+    <div class="panel">
+        <div class="panel-heading">
+            <h3 class="panel-title">Category Information</h3>
+        </div>
+        <form [formGroup]="editcategory">
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="name">Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" [ngClass]="{'is-invalid':checksubmit &&  editcategory.controls.name.errors}" formControlName="name" placeholder="Name" class="form-control"  required>
+                     <div *ngIf='checksubmit && editcategory.controls.name.errors' class="invalid-feedback">
+                         <div class="editcategory.controls.name.errors.required" class="text-danger">
+                             Name is Required
+                         </div>
+                     </div>
+                    </div> 
+                </div><br><br>        
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Meta Title</label>
+                    <div class="col-sm-10">
+                        <input type="text" formControlName="meta_title" class="form-control" [ngClass]="{'is-invalid':checksubmit && editcategory.controls.meta_title.errors}" placeholder="Meta Title">
+                    <div *ngIf="checksubmit && editcategory.controls.meta_title.errors" class="invalid-feedback">
+                        <div *ngIf="editcategory.controls.meta_title.errors.required" class="text-danger">
+                            Meta Title Is Required
+
+                        </div>
+
+                    </div>     
+                    </div>
+                </div> <br><br>                  
+            </div>
+            <div class="panel-footer text-right">
+                <button class="btn btn-purple" (click)="validt()" type="submit">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+   <!---Content End-->             
+</div> 
+</div>
+</div>          
+<app-sidenav></app-sidenav>
+<app-footer></app-footer>      
+</div>

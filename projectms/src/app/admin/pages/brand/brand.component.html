@@ -1,0 +1,106 @@
+
+<div id="container" class="effect aside-float aside-bright mainnav-lg">    
+    <app-navbar></app-navbar>               
+       <div class="boxed">
+           <div id="content-container">.
+            <div id="page-content">  
+            <!--CONTENT CONTAINER-->         
+                <div class="row">
+                    <div class="col-sm-12">
+                        <a (click)="empty()" class="btn btn-rounded btn-info pull-right" data-toggle="modal" data-target="#Addmodal">Add New Category</a>
+                    </div>
+                </div>
+                    <br>
+                <pre>{{ brand | json }}</pre>
+                    <div class="panel">
+                        <div class="panel-heading bord-btm clearfix pad-all h-100">
+                            <h3 class="panel-title pull-left pad-no">Categories</h3>
+                            <div class="pull-right clearfix">
+                            </div>
+                        </div>
+                        {{category | json}}
+                        <div class="panel-body">
+                            <table class="table table-striped res-table mar-no" cellspacing="0" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Name</th>
+                                        <th>Meta Title</th>               
+                                        <th width="10%">Options</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                        <tr *ngFor="let b of branddata; let n=index">
+                                            <td>{{ n+1 }}</td>
+                                            <td>{{ b.name }}</td>
+                                            <td> {{b.meta_title}} </td>
+                                            <td>
+                                                <div class="btn-group dropdown">
+                                                    <button class="btn btn-primary dropdown-toggle dropdown-toggle-icon" data-toggle="dropdown" type="button">
+                                                        Actions <i class="dropdown-caret"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu dropdown-menu-right">
+                                                        <li><a (click)="askedit(b)" data-toggle="modal" data-target="#Addmodal">Edit</a></li>
+                                                        <li><a (click)="askdelete(b)" data-toggle="modal" data-target="#Deletemodal">Delete</a></li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                            <div class="clearfix">
+                                <div class="pull-right">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" role="dialog" id="Addmodal" aria-hidden="true" >
+                        <div class="modal-dialog" role="document"> 
+                             <div class="modal-content"> 
+                                 <div class="modal-header">
+                                  <p>{{brand._id ? "Update": "Add New"}} Brand</p>
+                                 <button data-dismiss="modal" id="Closemodal" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                 </div>
+                                 <div class="modal-body">
+                                     <div class="form-group">
+                                         <label class="label-control">BrandName</label>
+                                         <input type="text" class="form-control" [(ngModel)]="brand.name" placeholder="BrandName">
+                                     </div>
+                                     <div class="form-group">
+                                         <label class="label-control">meta-title</label>
+                                         <input type="text" class="form-control" [(ngModel)]="brand.meta_title" placeholder="Meta Title">
+                                     </div>
+                                 </div>
+                                 <div class="modal-footer">
+                                    <button class="btn btn-primary" (click)="addbrand()">{{brand._id? "Update":"Add"}} Brand</button>
+                                    <button class="btn btn-dark" data-dismiss="modal">Cancel</button>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="modal fade" role="dialog" id="Deletemodal" aria-hidden="true" >
+                       <div class="modal-dialog" role="document"> 
+                        <div class="modal-content"> 
+                            <div class="modal-header">
+                             <p>Delete Brand</p>
+                            <button data-dismiss="modal" id="Dclosemodal" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">                                    
+                                   <p>Are You sure to Delete &nbsp;<b>{{brand.name}}</b></p>                              </div>
+                            </div>
+                            <div class="modal-footer">
+                               <button class="btn btn-primary" (click)="yesdelete()">Delete Brand</button>
+                               <button class="btn btn-dark" data-dismiss="modal">Cancel</button>
+                            </div>
+                        </div>
+                         </div>
+                    </div>
+                     
+       <!---Content End-->             
+        </div> 
+        </div>
+        </div>          
+        <app-sidenav></app-sidenav>
+        <app-footer></app-footer>      
+        </div>

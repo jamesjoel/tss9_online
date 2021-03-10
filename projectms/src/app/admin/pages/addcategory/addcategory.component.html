@@ -1,0 +1,37 @@
+<div id="container" class="effect aside-float aside-bright mainnav-lg">    
+    <app-navbar></app-navbar>               
+       <div class="boxed">
+           <div id="content-container">
+            <div id="page-content">  
+            <!--CONTENT CONTAINER-->       
+<div class="col-lg-6 col-lg-offset-3">
+    <div class="panel">
+        <div class="panel-heading">
+            <h3 class="panel-title">Category Information</h3>
+        </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="name">Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" placeholder="Name" class="form-control" [(ngModel)]="newcatgory.name" required>
+                   </div> 
+                </div><br><br>        
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Meta Title</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" [(ngModel)]="newcatgory.meta_title" placeholder="Meta Title">
+                    </div>
+                </div> <br><br>                  
+            </div>
+            <div class="panel-footer text-right">
+                <button class="btn btn-purple" (click)="addcategory()" type="submit">Save</button>
+            </div>
+    </div>
+</div>
+   <!---Content End-->             
+</div> 
+</div>
+</div>          
+<app-sidenav></app-sidenav>
+<app-footer></app-footer>      
+</div>

@@ -1,0 +1,96 @@
+<header id="navbar">
+    <div id="navbar-container" class="boxed">
+        <div class="navbar-header">
+            <a href="" class="navbar-brand">                
+                        <img loading="lazy"  src="http://localhost/shop/public/uploads/admin_logo/wCgHrz0Q5QoL1yu4vdrNnQIr4uGuNL48CXfcxOuS.png" class="brand-icon" alt="">
+                              <div class="brand-title">
+                    <span class="brand-text">Shop</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="navbar-content">
+
+            <ul class="nav navbar-top-links">
+
+                <li class="tgl-menu-btn">
+                    <a class="mainnav-toggle" href="#">
+                        <i class="demo-pli-list-view"></i>
+                    </a>
+                </li>
+
+                <li class="" data-toggle="tooltip" data-placement="bottom" data-original-title="Browse Frontend">
+                    <a target="_blank" href="">
+                        <i class="fa fa-globe"></i>
+                    </a>
+                </li>
+
+
+            </ul>
+            <ul class="nav navbar-top-links">
+                <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle" aria-expanded="true">
+                        <i class="demo-pli-bell"></i>
+                            <span class="badge badge-header badge-danger"></span>
+                    </a>
+
+                    <!--Notification dropdown menu-->
+                    <div class="dropdown-menu dropdown-menu-md dropdown-menu-right" style="opacity: 1;">
+                        <div class="nano scrollable has-scrollbar" style="height: 265px;">
+                            <div class="nano-content" tabindex="0" style="right: -17px;">
+                                <ul class="head-list">
+                                        <li>
+                                            <a class="media" href="" style="position:relative">
+                                                <span class="badge badge-header badge-info" style="right:auto;left:3px;"></span>
+                                                <div class="media-body">
+                                                    <p class="mar-no text-nowrap text-main text-semibold">new order(s)</p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="media" href="">
+                                                <div class="media-body">
+                                                    <p class="mar-no text-nowrap text-main text-semibold">as</p>
+                                                </div>
+                                            </a>
+                                        </li>                                   
+                                </ul>
+                            </div>
+                            <div class="nano-pane" >
+                                <div class="nano-slider" style="height: 170px; transform: translate(0px, 0px);"></div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <!--User dropdown-->
+                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                <li id="dropdown-user" class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle text-right">
+                        <span class="ic-user pull-right">
+
+                            <i class="demo-pli-male"></i>
+                        </span>
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right panel-default">
+                        <ul class="head-list">
+                            <li>
+                                <a routerLink="admin/profile"><i class="demo-pli-male icon-lg icon-fw"></i>Profile</a>
+                            </li>
+                            <li>
+                                <a (click)="logsout()" href=""><i class="demo-pli-unlock icon-lg icon-fw"></i>Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                <!--End user dropdown-->
+            </ul>
+        </div>
+        <!--================================-->
+        <!--End Navbar Dropdown-->
+
+    </div>
+</header>
+

@@ -1,0 +1,9 @@
+<form [formGroup]="demo">
+    <input type="text" formControlName="name" />
+    <br />
+    <br />
+    <input type="file" #img multiple formControlName="image" />
+    <br />
+    <br />
+    <input type="submit" (click)="submit(img)" value="Upload" />
+</form>
